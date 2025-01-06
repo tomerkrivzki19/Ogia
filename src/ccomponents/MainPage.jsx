@@ -24,6 +24,7 @@ import {
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import NavCommercialHeader from "./NavCommercialHeader";
 import ReviewSection from "./ReviewSection";
+import { InstagramEmbed, TikTokEmbed } from "react-social-media-embed";
 
 const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
 const navigation = {
@@ -264,7 +265,7 @@ function MainPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="bg-white">
+    <div className="bg-white ">
       {/* Mobile menu */}
       <Dialog
         open={mobileMenuOpen}
@@ -465,13 +466,13 @@ function MainPage() {
         </div>
       </Dialog>
 
-      <header className="relative z-10">
+      <header className="relative z-10 ">
         <nav aria-label="Top">
           {/* Top navigation */}
           <NavCommercialHeader />
 
           {/* Secondary navigation */}
-          <div className="bg-white">
+          <div className="bg-white pt-10 fixed w-full z-1">
             <div className="border-b border-gray-200">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
@@ -864,7 +865,7 @@ function MainPage() {
         {/* Reviews section */}
         <ReviewSection />
         {/* Collections */}
-        <section aria-labelledby="collections-heading" className="bg-gray-100">
+        <section aria-labelledby="collections-heading" className="bg-gray-100 ">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
               <h2
@@ -877,11 +878,27 @@ function MainPage() {
               <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
                 {collections.map((collection) => (
                   <div key={collection.name} className="group relative">
-                    <img
+                    {/* <img
                       alt={collection.imageAlt}
                       src={collection.imageSrc}
                       className="w-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-[2/1] lg:aspect-square"
-                    />
+                    /> */}
+                    {/* FIXME: vidoe frame */}
+                    {/* 
+                    <div style={{ display: "flex", justifyContent: "center" }}>
+                      <InstagramEmbed
+                        url="https://www.instagram.com/reel/DDkF_0EoJne/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                        width={328} // Adjust the width as necessary
+                        captioned={true} // Enable captions
+                        iframe={true} // Ensure iframe support
+                      />
+                    </div> */}
+                    <div style={{ display: "flex", justifyContent: "center" }}>
+                      <InstagramEmbed
+                        url="https://www.instagram.com/p/C5bifC9IBqE/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                        width={328}
+                      />
+                    </div>
                     <h3 className="mt-6 text-sm text-gray-500">
                       <a href={collection.href}>
                         <span className="absolute inset-0" />
