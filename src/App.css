@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* * {
+  padding: 0;
+  margin: 0;
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -43,4 +47,4 @@
 
 .read-the-docs {
   color: #888;
-}
+} */
