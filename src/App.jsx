@@ -2,10 +2,12 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import { fetchProducts } from "../services/shopify";
 
 function App() {
   const [count, setCount] = useState(0);
 
+  fetchProducts();
   return (
     <>
       <div className="bg-rose-300">
