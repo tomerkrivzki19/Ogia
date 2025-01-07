@@ -865,7 +865,7 @@ function MainPage() {
         {/* Reviews section */}
         <ReviewSection />
         {/* Collections */}
-        <section aria-labelledby="collections-heading" className="bg-gray-100 ">
+        <section aria-labelledby="collections-heading" className="bg-pink-100 ">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
               <h2
@@ -893,12 +893,20 @@ function MainPage() {
                         iframe={true} // Ensure iframe support
                       />
                     </div> */}
-                    <div style={{ display: "flex", justifyContent: "center" }}>
+                    {/* <div style={{ display: "flex", justifyContent: "center" }}>
                       <InstagramEmbed
                         url="https://www.instagram.com/p/C5bifC9IBqE/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
                         width={328}
                       />
+                    </div> */}
+
+                    <div style={{ display: "flex", justifyContent: "center" }}>
+                      <TikTokEmbed
+                        url="https://www.tiktok.com/@epicgardening/video/7055411162212633903"
+                        width={325}
+                      />
                     </div>
+
                     <h3 className="mt-6 text-sm text-gray-500">
                       <a href={collection.href}>
                         <span className="absolute inset-0" />
@@ -958,7 +966,7 @@ function MainPage() {
           {/* Testimonials */}
           <section
             aria-labelledby="testimonial-heading"
-            className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32"
+            className=" relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32"
           >
             <div className="mx-auto max-w-2xl lg:max-w-none">
               <h2
