@@ -31,7 +31,7 @@ const navigation = {
     {
       name: "חנות",
       featured: [
-        { name: "מארזי כוסות", href: "#" },
+        { name: "מארזי כוסות", href: "/store" },
         { name: "עוגות הבית", href: "#" },
         { name: "ימי הולדת", href: "#" },
       ],
@@ -313,7 +313,7 @@ function NavContainer() {
         </div>
       </Dialog>
 
-      <header className="relative z-10 ">
+      <header className="relative z-10">
         <nav aria-label="Top">
           {/* Top navigation */}
           <NavCommercialHeader />

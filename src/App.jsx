@@ -9,6 +9,9 @@ import NavContainer from "./components/NavContainer";
 import ContanctMe from "./components/ContanctMe";
 import QandAComponent from "./components/QandAComponent ";
 import Takanon from "./components/Takanon";
+import Error404 from "./components/Error404";
+import ProductPage from "./components/ProductPage";
+import StorePage from "./components/StorePage";
 
 function App() {
   fetchProducts();
@@ -16,11 +19,13 @@ function App() {
     <Router>
       <NavContainer />
       <Routes>
-        {/* <Route path="*" element={<ErroePage />} /> */}
+        <Route path="*" element={<Error404 />} />
         <Route path="/" element={<MainPage />} />
         <Route path="/contact" element={<ContanctMe />} />
         <Route path="/faq" element={<QandAComponent />} />
         <Route path="/takanon" element={<Takanon />} />
+        <Route path="/store" element={<StorePage />} />
+        <Route path="/productPage" element={<ProductPage />} />
       </Routes>
     </Router>
   );
