@@ -2,11 +2,11 @@ import React from "react";
 
 function NavCommercialHeader() {
   return (
-    <div className="bg-gray-900 fixed w-full z-10">
+    <div className="bg-[#A69F97]  fixed w-full z-10">
       {/* Main container */}
       <div className="mx-auto flex h-10 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Centered message */}
-        <p className="text-center text-sm font-medium text-white flex-1">
+        <p className="text-center text-sm font-medium text-black flex-1">
           קבל משלוח חינם בהזמנות מעל ₪100
         </p>
 
