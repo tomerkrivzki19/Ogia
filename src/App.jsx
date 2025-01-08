@@ -3,7 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
-import { fetchProducts } from "../services/shopify";
+// import { fetchProducts } from "../services/shopify";
 import MainPage from "./components/MainPage";
 import NavContainer from "./components/NavContainer";
 import ContanctMe from "./components/ContanctMe";

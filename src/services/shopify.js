@@ -17,7 +17,7 @@ export const fetchProducts = async (filterType = "all") => {
   }
 };
 
-// fetch product by ID
+// fetch product by ID -- not in use yet!! FIXME:l
 export const fetchProductById = async (id) => {
   try {
     const product = await client.product.fetch(id);
@@ -57,6 +57,25 @@ export const fetchTopSellingProducts = async (slice) => {
     return topSellingProducts;
   } catch (error) {
     console.error("Error fetching products", error);
+    throw error;
+  }
+};
+
+// fetch Latest Products
+export const fetchLatestProducts = async () => {
+  try {
+    // Fetch all products
+    const products = await client.product.fetchAll();
+
+    // Sort products by the published date in descending order (newest first)
+    const sortedProducts = products.sort(
+      (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
+    );
+
+    // Return the last 6 published products
+    return sortedProducts.slice(0, 6);
+  } catch (error) {
+    console.error("Error fetching latest products", error);
     throw error;
   }
 };

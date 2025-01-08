@@ -1,4 +1,5 @@
 // hooks/useProducts.js
+// FIXME: STORE MAIN PAGE HOOK -- need to add a use params sorting option
 import { useEffect, useState } from "react";
 import { fetchProducts } from "../services/shopify";
 // import { sortDataOptions } from "../utils/sortOptions";

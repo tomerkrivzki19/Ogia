@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg-pink-lines {
+  background-color: white; /* White background */
+  background-image: repeating-linear-gradient(
+    90deg,
+    /* Vertical lines */ rgba(255, 105, 180, 1) 0%,
+    /* Pink color */ rgba(255, 105, 180, 1) 10%,
+    /* Thicker line (adjust thickness here) */ transparent 10%,
+    /* Transparent space */ transparent 100% /* Extend the transparent space */
+  );
+  background-size: 20px 100%; /* Adjust the thickness (20px) and spacing */
+  padding: 1rem; /* Add some padding for spacing around the content */
+}
 /* * {
   padding: 0;
   margin: 0;

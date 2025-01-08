@@ -25,6 +25,8 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import NavCommercialHeader from "./NavCommercialHeader";
 import ReviewSection from "./ReviewSection";
 import { InstagramEmbed, TikTokEmbed } from "react-social-media-embed";
+import trendingProducts from "../hooks/trendingProducts";
+import ScroolingImages from "./subComponents/ScroolingImages";
 
 const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
 const navigation = {
@@ -109,73 +111,76 @@ const offers = [
     href: "#",
   },
 ];
-const trendingProducts = [
-  {
-    id: 1,
-    name: "Machined Pen",
-    color: "Black",
-    price: "$35",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/home-page-02-product-01.jpg",
-    imageAlt:
-      "Black machined steel pen with hexagonal grip and small white logo at top.",
-    availableColors: [
-      { name: "Black", colorBg: "#111827" },
-      { name: "Brass", colorBg: "#FDE68A" },
-      { name: "Chrome", colorBg: "#E5E7EB" },
-    ],
-  },
-  {
-    id: 1,
-    name: "Machined Pen",
-    color: "Black",
-    price: "$35",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/home-page-02-product-01.jpg",
-    imageAlt:
-      "Black machined steel pen with hexagonal grip and small white logo at top.",
-    availableColors: [
-      { name: "Black", colorBg: "#111827" },
-      { name: "Brass", colorBg: "#FDE68A" },
-      { name: "Chrome", colorBg: "#E5E7EB" },
-    ],
-  },
-  {
-    id: 1,
-    name: "Machined Pen",
-    color: "Black",
-    price: "$35",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/home-page-02-product-01.jpg",
-    imageAlt:
-      "Black machined steel pen with hexagonal grip and small white logo at top.",
-    availableColors: [
-      { name: "Black", colorBg: "#111827" },
-      { name: "Brass", colorBg: "#FDE68A" },
-      { name: "Chrome", colorBg: "#E5E7EB" },
-    ],
-  },
-  {
-    id: 1,
-    name: "Machined Pen",
-    color: "Black",
-    price: "$35",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/home-page-02-product-01.jpg",
-    imageAlt:
-      "Black machined steel pen with hexagonal grip and small white logo at top.",
-    availableColors: [
-      { name: "Black", colorBg: "#111827" },
-      { name: "Brass", colorBg: "#FDE68A" },
-      { name: "Chrome", colorBg: "#E5E7EB" },
-    ],
-  },
-  // More products...
-];
+
+// example of trending products
+// const trendingProducts = [
+//   {
+//     id: 1,
+//     name: "Machined Pen",
+//     color: "Black",
+//     price: "$35",
+//     href: "#",
+//     imageSrc:
+//       "https://tailwindui.com/plus/img/ecommerce-images/home-page-02-product-01.jpg",
+//     imageAlt:
+//       "Black machined steel pen with hexagonal grip and small white logo at top.",
+//     availableColors: [
+//       { name: "Black", colorBg: "#111827" },
+//       { name: "Brass", colorBg: "#FDE68A" },
+//       { name: "Chrome", colorBg: "#E5E7EB" },
+//     ],
+//   },
+//   {
+//     id: 1,
+//     name: "Machined Pen",
+//     color: "Black",
+//     price: "$35",
+//     href: "#",
+//     imageSrc:
+//       "https://tailwindui.com/plus/img/ecommerce-images/home-page-02-product-01.jpg",
+//     imageAlt:
+//       "Black machined steel pen with hexagonal grip and small white logo at top.",
+//     availableColors: [
+//       { name: "Black", colorBg: "#111827" },
+//       { name: "Brass", colorBg: "#FDE68A" },
+//       { name: "Chrome", colorBg: "#E5E7EB" },
+//     ],
+//   },
+//   {
+//     id: 1,
+//     name: "Machined Pen",
+//     color: "Black",
+//     price: "$35",
+//     href: "#",
+//     imageSrc:
+//       "https://tailwindui.com/plus/img/ecommerce-images/home-page-02-product-01.jpg",
+//     imageAlt:
+//       "Black machined steel pen with hexagonal grip and small white logo at top.",
+//     availableColors: [
+//       { name: "Black", colorBg: "#111827" },
+//       { name: "Brass", colorBg: "#FDE68A" },
+//       { name: "Chrome", colorBg: "#E5E7EB" },
+//     ],
+//   },
+//   {
+//     id: 1,
+//     name: "Machined Pen",
+//     color: "Black",
+//     price: "$35",
+//     href: "#",
+//     imageSrc:
+//       "https://tailwindui.com/plus/img/ecommerce-images/home-page-02-product-01.jpg",
+//     imageAlt:
+//       "Black machined steel pen with hexagonal grip and small white logo at top.",
+//     availableColors: [
+//       { name: "Black", colorBg: "#111827" },
+//       { name: "Brass", colorBg: "#FDE68A" },
+//       { name: "Chrome", colorBg: "#E5E7EB" },
+//     ],
+//   },
+//   // More products...
+// ];
+
 const collections = [
   {
     name: "Desk and Office",
@@ -265,6 +270,9 @@ const footerNavigation = {
 function MainPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const { products, error, loading } = trendingProducts();
+  console.log("products", products);
+
   return (
     <div className="bg-white ">
       <main>
@@ -309,8 +317,10 @@ function MainPage() {
         </div>
 
         {/* Trending products */}
-        <section aria-labelledby="trending-heading" className="bg-white">
-          <div className="py-16 sm:py-24 lg:mx-auto lg:max-w-7xl lg:px-8 lg:py-32">
+        {/* bg-pink-lines */}
+        <section aria-labelledby="trending-heading" className="bg-white ">
+          {/* lg:py-32 => -v */}
+          <div className="py-14 sm:py-24 lg:mx-auto lg:max-w-7xl lg:px-8 ">
             <div className="flex items-center justify-between px-4 sm:px-6 lg:px-0">
               <h2
                 id="trending-heading"
@@ -327,56 +337,10 @@ function MainPage() {
               </a>
             </div>
 
-            <div className="relative mt-8">
-              <div className="relative w-full overflow-x-auto">
-                <ul
-                  role="list"
-                  className="mx-4 inline-flex space-x-8 sm:mx-6 lg:mx-0 lg:grid lg:grid-cols-4 lg:gap-x-8 lg:space-x-0"
-                >
-                  {trendingProducts.map((product) => (
-                    <li
-                      key={product.id}
-                      className="inline-flex w-64 flex-col text-center lg:w-auto"
-                    >
-                      <div className="group relative">
-                        <img
-                          alt={product.imageAlt}
-                          src={product.imageSrc}
-                          className="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75"
-                        />
-                        <div className="mt-6">
-                          <p className="text-sm text-gray-500">
-                            {product.color}
-                          </p>
-                          <h3 className="mt-1 font-semibold text-gray-900">
-                            <a href={product.href}>
-                              <span className="absolute inset-0" />
-                              {product.name}
-                            </a>
-                          </h3>
-                          <p className="mt-1 text-gray-900">{product.price}</p>
-                        </div>
-                      </div>
+            {/* FIXME: trednig products */}
 
-                      <h4 className="sr-only">Available colors</h4>
-                      <ul
-                        role="list"
-                        className="mt-auto flex items-center justify-center space-x-3 pt-6"
-                      >
-                        {product.availableColors.map((color) => (
-                          <li
-                            key={color.name}
-                            style={{ backgroundColor: color.colorBg }}
-                            className="size-4 rounded-full border border-black/10"
-                          >
-                            <span className="sr-only">{color.name}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className="scrooling images ">
+              <ScroolingImages products={products} />
             </div>
 
             <div className="mt-12 px-4 sm:hidden">

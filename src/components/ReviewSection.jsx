@@ -92,7 +92,7 @@ function ReviewSection() {
               <img
                 alt={`${review.author}`}
                 src={review.avatarSrc}
-                className="w-12 h-12 rounded-full object-cover"
+                className="w-16 h-16 rounded-full object-cover"
               />
               <div className="mt-4 text-center sm:text-left">
                 <p className="text-sm font-medium text-gray-900">
