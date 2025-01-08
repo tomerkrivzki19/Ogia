@@ -14,7 +14,6 @@ import ProductPage from "./components/ProductPage";
 import StorePage from "./components/StorePage";
 
 function App() {
-  fetchProducts();
   return (
     <Router>
       <NavContainer />
@@ -25,7 +24,7 @@ function App() {
         <Route path="/faq" element={<QandAComponent />} />
         <Route path="/takanon" element={<Takanon />} />
         <Route path="/store" element={<StorePage />} />
-        <Route path="/productPage" element={<ProductPage />} />
+        <Route path="/product/:handle" element={<ProductPage />} />
       </Routes>
     </Router>
   );
