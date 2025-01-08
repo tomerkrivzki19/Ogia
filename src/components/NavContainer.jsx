@@ -30,60 +30,60 @@ const navigation = {
   categories: [
     {
       name: "חנות",
-      featured: [
-        { name: "מארזי כוסות", href: "/store" },
-        { name: "עוגות הבית", href: "#" },
-        { name: "ימי הולדת", href: "#" },
+      BakedGoods: [
+        { name: "עוגות", href: "/store" },
+        { name: "עוגיות", href: "#" },
+        { name: "טארטים", href: "#" },
       ],
-      collection: [
-        { name: "Everything", href: "#" },
-        { name: "Core", href: "#" },
-        { name: "New Arrivals", href: "#" },
-        { name: "Sale", href: "#" },
+      IndividualDesserts: [
+        { name: "קינוחי כוסות", href: "#" },
+        // { name: "Core", href: "#" },
+        // { name: "New Arrivals", href: "#" },
+        // { name: "Sale", href: "#" },
       ],
-      categories: [
-        { name: "Basic Tees", href: "#" },
-        { name: "Artwork Tees", href: "#" },
-        { name: "Bottoms", href: "#" },
-        { name: "Underwear", href: "#" },
-        { name: "Accessories", href: "#" },
+      GiftBoxes: [
+        { name: "מארזים", href: "#" },
+        // { name: "Artwork Tees", href: "#" },
+        // { name: "Bottoms", href: "#" },
+        // { name: "Underwear", href: "#" },
+        // { name: "Accessories", href: "#" },
       ],
-      brands: [
-        { name: "Full Nelson", href: "#" },
-        { name: "My Way", href: "#" },
-        { name: "Re-Arranged", href: "#" },
-        { name: "Counterfeit", href: "#" },
-        { name: "Significant Other", href: "#" },
-      ],
-    },
-    {
-      name: "מארזים",
-      featured: [
-        { name: "Casual", href: "#" },
-        { name: "Boxers", href: "#" },
-        { name: "Outdoor", href: "#" },
-      ],
-      collection: [
-        { name: "Everything", href: "#" },
-        { name: "Core", href: "#" },
-        { name: "New Arrivals", href: "#" },
-        { name: "Sale", href: "#" },
-      ],
-      categories: [
-        { name: "Artwork Tees", href: "#" },
-        { name: "Pants", href: "#" },
-        { name: "Accessories", href: "#" },
-        { name: "Boxers", href: "#" },
-        { name: "Basic Tees", href: "#" },
-      ],
-      brands: [
-        { name: "Significant Other", href: "#" },
-        { name: "My Way", href: "#" },
-        { name: "Counterfeit", href: "#" },
-        { name: "Re-Arranged", href: "#" },
-        { name: "Full Nelson", href: "#" },
+      IceCreams: [
+        { name: "גלידות", href: "#" },
+        // { name: "My Way", href: "#" },
+        // { name: "Re-Arranged", href: "#" },
+        // { name: "Counterfeit", href: "#" },
+        // { name: "Significant Other", href: "#" },
       ],
     },
+    // {
+    //   name: "מארזים",
+    //   IndividuaBakedGoodslDesserts: [
+    //     { name: "Casual", href: "#" },
+    //     { name: "Boxers", href: "#" },
+    //     { name: "Outdoor", href: "#" },
+    //   ],
+    //   IndividualDesserts: [
+    //     { name: "Everything", href: "#" },
+    //     { name: "Core", href: "#" },
+    //     { name: "New Arrivals", href: "#" },
+    //     { name: "Sale", href: "#" },
+    //   ],
+    //   GiftBoxes: [
+    //     { name: "Artwork Tees", href: "#" },
+    //     { name: "Pants", href: "#" },
+    //     { name: "Accessories", href: "#" },
+    //     { name: "Boxers", href: "#" },
+    //     { name: "Basic Tees", href: "#" },
+    //   ],
+    //   IceCreams: [
+    //     { name: "Significant Other", href: "#" },
+    //     { name: "My Way", href: "#" },
+    //     { name: "Counterfeit", href: "#" },
+    //     { name: "Re-Arranged", href: "#" },
+    //     { name: "Full Nelson", href: "#" },
+    //   ],
+    // },
   ],
   pages: [
     { name: "שאלות תשובות", href: "/faq" },
@@ -164,17 +164,17 @@ function NavContainer() {
                       <div className="grid grid-cols-1 gap-x-6 gap-y-10">
                         <div>
                           <p
-                            id={`mobile-featured-heading-${categoryIdx}`}
+                            id={`mobile-IndividuaBakedGoodslDesserts-heading-${categoryIdx}`}
                             className="font-medium text-gray-900"
                           >
-                            Featured
+                            מאפים
                           </p>
                           <ul
                             role="list"
-                            aria-labelledby={`mobile-featured-heading-${categoryIdx}`}
+                            aria-labelledby={`mobile-IndividuaBakedGoodslDesserts-heading-${categoryIdx}`}
                             className="mt-6 space-y-6"
                           >
-                            {category.featured.map((item) => (
+                            {category.BakedGoods.map((item) => (
                               <li key={item.name} className="flex">
                                 <a href={item.href} className="text-gray-500">
                                   {item.name}
@@ -185,17 +185,17 @@ function NavContainer() {
                         </div>
                         <div>
                           <p
-                            id="mobile-categories-heading"
+                            id="mobile-GiftBoxes-heading"
                             className="font-medium text-gray-900"
                           >
-                            Categories
+                            מארזים
                           </p>
                           <ul
                             role="list"
-                            aria-labelledby="mobile-categories-heading"
+                            aria-labelledby="mobile-GiftBoxes-heading"
                             className="mt-6 space-y-6"
                           >
-                            {category.categories.map((item) => (
+                            {category.GiftBoxes.map((item) => (
                               <li key={item.name} className="flex">
                                 <a href={item.href} className="text-gray-500">
                                   {item.name}
@@ -208,17 +208,17 @@ function NavContainer() {
                       <div className="grid grid-cols-1 gap-x-6 gap-y-10">
                         <div>
                           <p
-                            id="mobile-collection-heading"
+                            id="mobile-IndividualDesserts-heading"
                             className="font-medium text-gray-900"
                           >
-                            Collection
+                            קינוחים אישיים
                           </p>
                           <ul
                             role="list"
-                            aria-labelledby="mobile-collection-heading"
+                            aria-labelledby="mobile-IndividualDesserts-heading"
                             className="mt-6 space-y-6"
                           >
-                            {category.collection.map((item) => (
+                            {category.IndividualDesserts.map((item) => (
                               <li key={item.name} className="flex">
                                 <a href={item.href} className="text-gray-500">
                                   {item.name}
@@ -233,14 +233,14 @@ function NavContainer() {
                             id="mobile-brand-heading"
                             className="font-medium text-gray-900"
                           >
-                            Brands
+                            גלידות
                           </p>
                           <ul
                             role="list"
                             aria-labelledby="mobile-brand-heading"
                             className="mt-6 space-y-6"
                           >
-                            {category.brands.map((item) => (
+                            {category.IceCreams.map((item) => (
                               <li key={item.name} className="flex">
                                 <a href={item.href} className="text-gray-500">
                                   {item.name}
@@ -359,17 +359,17 @@ function NavContainer() {
                                     <div className="grid grid-cols-2 gap-x-8 gap-y-10">
                                       <div>
                                         <p
-                                          id={`desktop-featured-heading-${categoryIdx}`}
+                                          id={`desktop-IndividuaBakedGoodslDesserts-heading-${categoryIdx}`}
                                           className="font-medium text-gray-900"
                                         >
-                                          Featured
+                                          מאפים
                                         </p>
                                         <ul
                                           role="list"
-                                          aria-labelledby={`desktop-featured-heading-${categoryIdx}`}
+                                          aria-labelledby={`desktop-IndividuaBakedGoodslDesserts-heading-${categoryIdx}`}
                                           className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                         >
-                                          {category.featured.map((item) => (
+                                          {category.BakedGoods.map((item) => (
                                             <li
                                               key={item.name}
                                               className="flex"
@@ -386,17 +386,17 @@ function NavContainer() {
                                       </div>
                                       <div>
                                         <p
-                                          id="desktop-categories-heading"
+                                          id="desktop-GiftBoxes-heading"
                                           className="font-medium text-gray-900"
                                         >
-                                          Categories
+                                          מארזים
                                         </p>
                                         <ul
                                           role="list"
-                                          aria-labelledby="desktop-categories-heading"
+                                          aria-labelledby="desktop-GiftBoxes-heading"
                                           className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                         >
-                                          {category.categories.map((item) => (
+                                          {category.GiftBoxes.map((item) => (
                                             <li
                                               key={item.name}
                                               className="flex"
@@ -415,29 +415,31 @@ function NavContainer() {
                                     <div className="grid grid-cols-2 gap-x-8 gap-y-10">
                                       <div>
                                         <p
-                                          id="desktop-collection-heading"
+                                          id="desktop-IndividualDesserts-heading"
                                           className="font-medium text-gray-900"
                                         >
-                                          Collection
+                                          קינוחים אישיים
                                         </p>
                                         <ul
                                           role="list"
-                                          aria-labelledby="desktop-collection-heading"
+                                          aria-labelledby="desktop-IndividualDesserts-heading"
                                           className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                         >
-                                          {category.collection.map((item) => (
-                                            <li
-                                              key={item.name}
-                                              className="flex"
-                                            >
-                                              <a
-                                                href={item.href}
-                                                className="hover:text-gray-800"
+                                          {category.IndividualDesserts.map(
+                                            (item) => (
+                                              <li
+                                                key={item.name}
+                                                className="flex"
                                               >
-                                                {item.name}
-                                              </a>
-                                            </li>
-                                          ))}
+                                                <a
+                                                  href={item.href}
+                                                  className="hover:text-gray-800"
+                                                >
+                                                  {item.name}
+                                                </a>
+                                              </li>
+                                            )
+                                          )}
                                         </ul>
                                       </div>
 
@@ -446,14 +448,14 @@ function NavContainer() {
                                           id="desktop-brand-heading"
                                           className="font-medium text-gray-900"
                                         >
-                                          Brands
+                                          גלידות
                                         </p>
                                         <ul
                                           role="list"
                                           aria-labelledby="desktop-brand-heading"
                                           className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                                         >
-                                          {category.brands.map((item) => (
+                                          {category.IceCreams.map((item) => (
                                             <li
                                               key={item.name}
                                               className="flex"
