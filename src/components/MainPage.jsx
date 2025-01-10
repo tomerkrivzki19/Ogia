@@ -23,10 +23,11 @@ import {
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import NavCommercialHeader from "./NavCommercialHeader";
-import ReviewSection from "./ReviewSection";
+import ReviewSection from "./subComponents/ReviewSection";
 import { InstagramEmbed, TikTokEmbed } from "react-social-media-embed";
 import trendingProducts from "../hooks/trendingProducts";
 import ScroolingImages from "./subComponents/ScroolingImages";
+import TiktokFrame from "./subComponents/TiktokFrame";
 
 const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
 const navigation = {
@@ -229,6 +230,28 @@ const testimonials = [
     attribution: "Chris Paul, Phoenix",
   },
 ];
+
+const aboutMe = [
+  {
+    id: 1,
+    quote:
+      "אני תמיד שואפת להוציא את המיטב בכל יצירה שאני מכינה. כל מאפה שאני יוצרת, הוא תוצאה של אהבה ותשוקה למלאכת הקונדיטוריה.",
+    attribution: "טטיאנה צ'רוב, קונדיטורית מומחית",
+  },
+  {
+    id: 2,
+    quote:
+      "כקונדיטורית, אני מאמינה שהאיכות והטריות הן המפתח להצלחה. אני שואפת להעניק ללקוחות חווית טעמים שאין כמוה, בכל פעם מחדש.",
+    attribution: "טטיאנה צ'רוב, קונדיטורית מומחית",
+  },
+  {
+    id: 3,
+    quote:
+      "למדתי קונדיטוריה במספר מוסדות נחשבים בארץ ובעולם, ואני גאה לשלב את הידע הקולינרי שלי עם יצירתיות אינסופית כדי להפיק מאפים מושלמים.",
+    attribution: "טטיאנה צ'רוב, קונדיטורית מומחית",
+  },
+];
+
 const footerNavigation = {
   products: [
     { name: "Bags", href: "#" },
@@ -329,7 +352,7 @@ function MainPage() {
                 Trending products
               </h2>
               <a
-                href="#"
+                href="/store"
                 className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block"
               >
                 See everything
@@ -365,51 +388,10 @@ function MainPage() {
                 id="collections-heading"
                 className="text-2xl font-bold text-gray-900"
               >
-                Collections
+                אוספים....
               </h2>
 
-              <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
-                {collections.map((collection) => (
-                  <div key={collection.name} className="group relative">
-                    {/* <img
-                      alt={collection.imageAlt}
-                      src={collection.imageSrc}
-                      className="w-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-[2/1] lg:aspect-square"
-                    /> */}
-                    {/* FIXME: vidoe frame */}
-                    {/* 
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <InstagramEmbed
-                        url="https://www.instagram.com/reel/DDkF_0EoJne/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-                        width={328} // Adjust the width as necessary
-                        captioned={true} // Enable captions
-                        iframe={true} // Ensure iframe support
-                      />
-                    </div> */}
-                    {/* <div style={{ display: "flex", justifyContent: "center" }}>
-                      <InstagramEmbed
-                        url="https://www.instagram.com/p/C5bifC9IBqE/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-                        width={328}
-                      />
-                    </div> */}
-                    <div style={{ display: "flex", justifyContent: "center" }}>
-                      <TikTokEmbed
-                        url="https://www.tiktok.com/@dorincohen440/video/7398130198887124242?is_from_webapp=1&sender_device=pc&web_id=7403007581662922247"
-                        width={325}
-                      />
-                    </div>
-                    <h3 className="mt-6 text-sm text-gray-500">
-                      <a href={collection.href}>
-                        <span className="absolute inset-0" />
-                        {collection.name}
-                      </a>
-                    </h3>
-                    <p className="text-base font-semibold text-gray-900">
-                      {collection.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              <TiktokFrame />
             </div>
           </div>
         </section>
@@ -429,7 +411,7 @@ function MainPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-white via-white" />
           </div>
 
-          {/* Sale */}
+          {/* Sale hero  */}
           <section
             aria-labelledby="sale-heading"
             className="relative mx-auto flex max-w-7xl flex-col items-center px-4 pt-32 text-center sm:px-6 lg:px-8"
@@ -439,36 +421,40 @@ function MainPage() {
                 id="sale-heading"
                 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl"
               >
-                Get 25% off during our one-time sale
+                קבלו 25% הנחה במהלך המבצע החד פעמי שלנו{" "}
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-xl text-gray-600">
-                Most of our products are limited releases that won't come back.
-                Get your favorite items while they're in stock.
+              <p
+                className="mx-auto mt-4 max-w-xl text-xl text-gray-600"
+                dir="rtl"
+              >
+                רוב המוצרים שלנו הם מהדורות מוגבלות שלא יחזרו. קבל את הפריטים
+                האהובים עליך בזמן שהם במלאי.
               </p>
               <a
-                href="#"
+                href="/store"
                 className="mt-6 inline-block w-full rounded-md border border-transparent bg-gray-900 px-8 py-3 font-medium text-white hover:bg-gray-800 sm:w-auto"
               >
-                Get access to our one-time sale
+                קבל גישה למכירה החד פעמית שלנו{" "}
               </a>
             </div>
           </section>
 
-          {/* Testimonials */}
+          {/* aboutME section  */}
           <section
             aria-labelledby="testimonial-heading"
             className=" relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32"
+            dir="rtl"
           >
             <div className="mx-auto max-w-2xl lg:max-w-none">
               <h2
                 id="testimonial-heading"
                 className="text-2xl font-bold tracking-tight text-gray-900"
               >
-                What are people saying?
+                קצת עליי
               </h2>
 
               <div className="mt-16 space-y-16 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
-                {testimonials.map((testimonial) => (
+                {aboutMe.map((testimonial) => (
                   <blockquote key={testimonial.id} className="sm:flex lg:block">
                     <svg
                       width={24}
@@ -498,6 +484,7 @@ function MainPage() {
         </div>
       </main>
 
+      {/* footer  TODO: */}
       <footer aria-labelledby="footer-heading" className="bg-white">
         <h2 id="footer-heading" className="sr-only">
           Footer
