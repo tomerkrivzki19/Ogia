@@ -398,12 +398,12 @@ function MainPage() {
 
         {/* Sale and testimonials */}
         <div className="relative overflow-hidden">
-          {/* Decorative background image and gradient */}
-          <div aria-hidden="true" className="absolute inset-0">
+          {/* Decorative background image and gradient FIXME: added a bg color */}
+          <div aria-hidden="true" className="absolute inset-0 bg-pink-lines">
             <div className="absolute inset-0 mx-auto max-w-7xl overflow-hidden xl:px-8">
               <img
                 alt=""
-                src="https://tailwindui.com/plus/img/ecommerce-images/home-page-02-sale-full-width.jpg"
+                // src="https://tailwindui.com/plus/img/ecommerce-images/home-page-02-sale-full-width.jpg"
                 className="size-full object-cover"
               />
             </div>
