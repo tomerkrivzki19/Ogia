@@ -294,7 +294,7 @@ function MainPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const { products, error, loading } = trendingProducts();
-  console.log("products", products);
+  // console.log("products", products);
 
   return (
     <div className="bg-white ">

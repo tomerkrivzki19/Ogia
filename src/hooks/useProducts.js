@@ -2,11 +2,11 @@
 // FIXME: STORE MAIN PAGE HOOK -- need to add a use params sorting option
 import { useEffect, useState } from "react";
 import { fetchProducts } from "../services/shopify";
-// import { sortDataOptions } from "../utils/sortOptions";
+import { sortDataOptions } from "../utils/sortDataOptions";
 
 // const useProducts = (sortOption, productsType) => {
 // TODO: category = "all", sortOption = "default"
-const useProducts = (productsType) => {
+const useProducts = (type, sortQuery) => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -14,13 +14,14 @@ const useProducts = (productsType) => {
   useEffect(() => {
     const loadProducts = async () => {
       try {
-        const fetchedProducts = await fetchProducts(productsType);
+        const fetchedProducts = await fetchProducts(type);
+
         // TODO: for the existing page setup
-        // const sortedProducts = sortDataOptions(sortOption, fetchedProducts);
+        const sortedProducts = sortDataOptions(sortQuery, fetchedProducts);
 
         // setProducts(sortedProducts);
 
-        setProducts(fetchedProducts);
+        setProducts(sortedProducts);
       } catch (error) {
         setError("Failed to load products. Please try again later.");
         console.error("Error fetching products:", error);
@@ -31,7 +32,7 @@ const useProducts = (productsType) => {
 
     loadProducts();
     //   }, [sortOption, productsType]);
-  }, []);
+  }, [sortQuery, type]);
 
   return { products, error, loading };
 };

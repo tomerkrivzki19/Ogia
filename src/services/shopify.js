@@ -1,5 +1,4 @@
 import Client from "shopify-buy";
-import { replaceDashWithSpace } from "../utils/sortDataOptions";
 
 // SHOPIFY ASTOREFONT API - for calling basic data
 

@@ -7,6 +7,10 @@ import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
+  Menu,
+  MenuButton,
+  MenuItems,
+  MenuItem,
   Popover,
   PopoverButton,
   PopoverGroup,
@@ -25,7 +29,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon, PlusIcon } from "@heroicons/react/20/solid";
 import useProducts from "../hooks/useProducts";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 const navigation = {
   categories: [
@@ -160,14 +164,15 @@ const breadcrumbs = [{ id: 1, name: "Men", href: "#" }];
 const filters = [
   {
     id: "color",
-    name: "Color",
+    name: "קטגוריה",
     options: [
-      { value: "white", label: "White" },
-      { value: "beige", label: "Beige" },
-      { value: "blue", label: "Blue" },
-      { value: "brown", label: "Brown" },
-      { value: "green", label: "Green" },
-      { value: "purple", label: "Purple" },
+      { value: "white", label: "הכל" },
+      { value: "white", label: "עוגות" },
+      { value: "beige", label: "עוגיות" },
+      { value: "blue", label: "טארטים" },
+      { value: "brown", label: "מארזים" },
+      { value: "green", label: "קינוחי כוסות" },
+      { value: "purple", label: "גלידות" },
     ],
   },
   {
@@ -248,16 +253,38 @@ const footerNavigation = {
     { name: "Find a store", href: "#" },
   ],
 };
+// const sortOptions = [
+//   { name: "הפופולריים ביותר", href: "#", current: true },
+//   { name: "הדירוג הגבוה ביותר", href: "#", current: false },
+//   { name: "החדשים ביותר", href: "#", current: false },
+//   { name: "מחיר: מהנמוך לגבוה", href: "#", current: false },
+//   { name: "מחיר: מהגבוה לנמוך", href: "#", current: false },
+// ];
+const sortOptions = [
+  { name: "החדשים ביותר", value: "newest" },
+  { name: "הפופולריים ביותר", value: "most-popular" },
+  { name: "הדירוג הגבוה ביותר", value: "best-rating" },
+  { name: "מחיר: מהנמוך לגבוה", value: "price-low-to-high" },
+  { name: "מחיר: מהגבוה לנמוך", value: "price-high-to-low" },
+];
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
 function StorePage() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  //   const { products, error, loading } = useProducts(sortOption, productsType);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const sortQuery = searchParams.get("sort") || "newest";
 
   const { type } = useParams();
 
-  // const productType = type ? ""
-  const { products, error, loading } = useProducts(type);
+  const { products, error, loading } = useProducts(type, sortQuery);
   // console.log("products", products);
+  const handleSortChange = (value) => {
+    setSearchParams({ sort: value });
+  };
+
+  console.log(products[0]);
 
   return (
     <div>
@@ -405,7 +432,7 @@ function StorePage() {
           </ol>
         </nav>
       </div>
-      <main className="mx-auto max-w-2xl px-4 lg:max-w-7xl lg:px-8">
+      <main className="mx-auto max-w-2xl px-4 lg:max-w-7xl lg:px-8" dir="rtl">
         <div className="border-b border-gray-200 pb-10 pt-24">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900">
             New Arrivals
@@ -414,6 +441,81 @@ function StorePage() {
             Checkout out the latest release of Basic Tees, new and improved with
             four openings!
           </p>
+        </div>
+
+        {/* new sortig  icon TODO: */}
+        {/* <div className="flex items-center justify-end">
+          <Menu as="div" className="relative inline-block text-left">
+            <div>
+              <MenuButton className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                סינון
+                <ChevronDownIcon
+                  aria-hidden="true"
+                  className="-mr-1 ml-1 size-5 shrink-0 text-gray-400 group-hover:text-gray-500"
+                />
+              </MenuButton>
+            </div>
+
+            <MenuItems
+              transition
+              className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+            >
+              <div className="py-1">
+                {sortOptions.map((option) => (
+                  <MenuItem key={option.name}>
+                    <a
+                      href={option.href}
+                      className={classNames(
+                        option.current
+                          ? "font-medium text-gray-900"
+                          : "text-gray-500",
+                        "block px-4 py-2 text-sm data-[focus]:bg-gray-100 data-[focus]:outline-none"
+                      )}
+                    >
+                      {option.name}
+                    </a>
+                  </MenuItem>
+                ))}
+              </div>
+            </MenuItems>
+          </Menu>
+        </div> */}
+
+        {/* new array  */}
+        <div className="flex items-center ">
+          <Menu as="div" className="relative inline-block text-left">
+            <div>
+              <MenuButton className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                סינון
+                <ChevronDownIcon
+                  aria-hidden="true"
+                  className="-mr-1 ml-1 h-5 w-5 shrink-0 text-gray-400 group-hover:text-gray-500"
+                />
+              </MenuButton>
+            </div>
+
+            <MenuItems className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black/5 focus:outline-none transition-all transform data-[closed]:scale-95 data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in">
+              <div className="py-1">
+                {sortOptions.map((option) => (
+                  <MenuItems key={option.value}>
+                    {/* active doenst work  */}
+                    {({ active }) => (
+                      <button
+                        onClick={() => handleSortChange(option.value)}
+                        className={`${
+                          sortQuery === option.value
+                            ? "bg-gray-100 text-gray-900"
+                            : "text-gray-700"
+                        } block w-full px-4 py-2 text-left text-sm`}
+                      >
+                        {option.name}
+                      </button>
+                    )}
+                  </MenuItems>
+                ))}
+              </div>
+            </MenuItems>
+          </Menu>
         </div>
 
         <div className="pb-24 pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
