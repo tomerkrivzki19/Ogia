@@ -22,14 +22,11 @@ export const fetchProducts = async (
     if (!category || category === "all") {
       return products;
     }
-    console.log(1);
 
     // Replace dashes with spaces in the category if necessary
     const cleanedCategory = category.includes("-")
       ? category.replace(/-/g, " ")
       : category;
-
-    console.log("cleanedCategory", cleanedCategory);
 
     // Filter products based on the cleaned category
     return products.filter(
