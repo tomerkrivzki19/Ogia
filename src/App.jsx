@@ -23,7 +23,8 @@ function App() {
         <Route path="/contact" element={<ContanctMe />} />
         <Route path="/faq" element={<QandAComponent />} />
         <Route path="/takanon" element={<Takanon />} />
-        <Route path="/store" element={<StorePage />} />
+        {/* TODO: add params quey  */}
+        <Route path="/store/:type?" element={<StorePage />} />
         <Route path="/product/:handle" element={<ProductPage />} />
       </Routes>
     </Router>

@@ -31,25 +31,25 @@ const navigation = {
     {
       name: "חנות",
       BakedGoods: [
-        { name: "עוגות", href: "/store" },
-        { name: "עוגיות", href: "#" },
-        { name: "טארטים", href: "#" },
+        { name: "עוגות", href: "/store/עוגות" },
+        { name: "עוגיות", href: "/store/עוגיות" },
+        { name: "טארטים", href: "/store/טארטים" },
       ],
       IndividualDesserts: [
-        { name: "קינוחי כוסות", href: "#" },
+        { name: "קינוחי כוסות", href: "/store/קינוחי-כוסות" },
         // { name: "Core", href: "#" },
         // { name: "New Arrivals", href: "#" },
         // { name: "Sale", href: "#" },
       ],
       GiftBoxes: [
-        { name: "מארזים", href: "#" },
+        { name: "מארזים", href: "/store/מארזים" },
         // { name: "Artwork Tees", href: "#" },
         // { name: "Bottoms", href: "#" },
         // { name: "Underwear", href: "#" },
         // { name: "Accessories", href: "#" },
       ],
       IceCreams: [
-        { name: "גלידות", href: "#" },
+        { name: "גלידות", href: "/store/גלידות" },
         // { name: "My Way", href: "#" },
         // { name: "Re-Arranged", href: "#" },
         // { name: "Counterfeit", href: "#" },

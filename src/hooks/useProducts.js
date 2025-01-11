@@ -5,7 +5,8 @@ import { fetchProducts } from "../services/shopify";
 // import { sortDataOptions } from "../utils/sortOptions";
 
 // const useProducts = (sortOption, productsType) => {
-const useProducts = (productsType = "all") => {
+// TODO: category = "all", sortOption = "default"
+const useProducts = (productsType) => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -14,10 +15,10 @@ const useProducts = (productsType = "all") => {
     const loadProducts = async () => {
       try {
         const fetchedProducts = await fetchProducts(productsType);
+        // TODO: for the existing page setup
         // const sortedProducts = sortDataOptions(sortOption, fetchedProducts);
 
         // setProducts(sortedProducts);
-        console.log("fetched products", fetchedProducts);
 
         setProducts(fetchedProducts);
       } catch (error) {

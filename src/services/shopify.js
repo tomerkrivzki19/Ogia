@@ -1,4 +1,5 @@
 import Client from "shopify-buy";
+import { replaceDashWithSpace } from "../utils/sortDataOptions";
 
 // SHOPIFY ASTOREFONT API - for calling basic data
 
@@ -7,10 +8,36 @@ const client = Client.buildClient({
   storefrontAccessToken: import.meta.env.VITE_SHOPIFY_STOREFRONT_ACCESS_TOKEN,
 });
 
-export const fetchProducts = async (filterType = "all") => {
+// category is the props that was passed from the function
+export const fetchProducts = async (
+  category = "all",
+  sortOption = "default"
+) => {
   try {
+    // console.log("category", category); // the props that was passed
+    // // console.log("sortOption", sortOption);
+
     const products = await client.product.fetchAll();
-    return products;
+
+    // Handle "all" category or empty category
+    if (!category || category === "all") {
+      return products;
+    }
+    console.log(1);
+
+    // Replace dashes with spaces in the category if necessary
+    const cleanedCategory = category.includes("-")
+      ? category.replace(/-/g, " ")
+      : category;
+
+    console.log("cleanedCategory", cleanedCategory);
+
+    // Filter products based on the cleaned category
+    return products.filter(
+      (product) =>
+        typeof product.productType === "string" &&
+        product.productType.includes(cleanedCategory) // Checks if productType includes the category
+    );
   } catch (error) {
     console.error("Error fetching products", error);
     throw error;

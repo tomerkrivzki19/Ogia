@@ -25,6 +25,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon, PlusIcon } from "@heroicons/react/20/solid";
 import useProducts from "../hooks/useProducts";
+import { useParams } from "react-router-dom";
 
 const navigation = {
   categories: [
@@ -251,8 +252,12 @@ const footerNavigation = {
 function StorePage() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   //   const { products, error, loading } = useProducts(sortOption, productsType);
-  const { products, error, loading } = useProducts();
-  console.log("products", products);
+
+  const { type } = useParams();
+
+  // const productType = type ? ""
+  const { products, error, loading } = useProducts(type);
+  // console.log("products", products);
 
   return (
     <div>
