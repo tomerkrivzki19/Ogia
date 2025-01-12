@@ -322,13 +322,31 @@ function ProductPage() {
   const { handle } = useParams();
   console.log("handle", handle);
   const [open, setOpen] = useState(false);
-
+  const [isFavorite, setIsFavorite] = useState(
+    localStorage.getItem("favorites")
+  );
   //   const { product, products, isFavorite, setIsFavorite, loading } =
   //     useProduct(handle);
   const { product, loading } = useProduct(handle);
-  console.log("product", product);
+  // console.log("product", product);
+  // console.log("product", product.descriptionHtml.split("\n"));
 
   //   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+
+  // TODO: favorites part
+  // const toggleFavorite = (id, name) => {
+  //   if (isFavorite) {
+  //     const removeFromFavorites =(id, name)=>{
+  //      localStorage.removeItem(id)
+  //     }
+  //     removeFromFavorites(id, name); // Use the product's name for GA
+
+  //   } else {
+  //     addToFavorites(id, name); // Use the product's name for GA
+  //   }
+  //   setIsFavorite(!isFavorite); // Toggle favorite state
+  // };
+
   return (
     <>
       {loading ? (
@@ -381,7 +399,7 @@ function ProductPage() {
               </TabGroup>
 
               {/* Product info */}
-              <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
+              <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0" dir="rtl">
                 <h1 className="text-3xl font-bold tracking-tight text-gray-900">
                   {product.title}
                 </h1>
@@ -394,7 +412,7 @@ function ProductPage() {
                 </div>
 
                 {/* Reviews */}
-                <div className="mt-3">
+                {/* <div className="mt-3">
                   <h3 className="sr-only">Reviews</h3>
                   <div className="flex items-center">
                     <div className="flex items-center">
@@ -413,7 +431,7 @@ function ProductPage() {
                     </div>
                     <p className="sr-only">{product.rating} out of 5 stars</p>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="mt-6">
                   <h3 className="sr-only">Description</h3>
@@ -432,39 +450,6 @@ function ProductPage() {
                 </div>
 
                 <form className="mt-6">
-                  {/* Colors */}
-                  {/* <div>
-                    <h3 className="text-sm text-gray-600">Color</h3>
-
-                    <fieldset aria-label="Choose a color" className="mt-2">
-                      <RadioGroup
-                        value={selectedColor}
-                        onChange={setSelectedColor}
-                        className="flex items-center gap-x-3"
-                      >
-                        {product.colors.map((color) => (
-                          <Radio
-                            key={color.name}
-                            value={color}
-                            aria-label={color.name}
-                            className={classNames(
-                              color.selectedColor,
-                              "relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none data-[checked]:ring-2 data-[focus]:data-[checked]:ring data-[focus]:data-[checked]:ring-offset-1"
-                            )}
-                          >
-                            <span
-                              aria-hidden="true"
-                              className={classNames(
-                                color.bgColor,
-                                "size-8 rounded-full border border-black/10"
-                              )}
-                            />
-                          </Radio>
-                        ))}
-                      </RadioGroup>
-                    </fieldset>
-                  </div> */}
-
                   <div className="mt-10 flex">
                     <button
                       type="submit"
@@ -476,10 +461,22 @@ function ProductPage() {
                     <button
                       type="button"
                       className="ml-4 flex items-center justify-center rounded-md px-3 py-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
+                      // onClick={() => toggleFavorite()} TODO: favorites part
                     >
+                      {/* {isFavorite ? (
+                        <SolidHeartIcon
+                          aria-hidden="true"
+                          className="h-6 w-6 flex-shrink-0 text-red-500  animate-jump-in animate-once  animate-delay-500"
+                        />
+                      ) : (
+                        <HeartIcon
+                          aria-hidden="true"
+                          className="h-6 w-6 flex-shrink-0 "
+                        />
+                      )} */}
                       <HeartIcon
                         aria-hidden="true"
-                        className="size-6 shrink-0"
+                        className="h-6 w-6 flex-shrink-0 "
                       />
                       <span className="sr-only">Add to favorites</span>
                     </button>
@@ -492,7 +489,17 @@ function ProductPage() {
                   </h2>
 
                   <div className="divide-y divide-gray-200 border-t">
-                    {/* {product.details.map((detail) => (
+                    {[
+                      {
+                        name: "תאור המוצר ", // Section title
+
+                        items:
+                          product.descriptionHtml
+                            .match(/<li>(.*?)<\/li>/g) // Match all <li>...</li> tags
+                            ?.map((li) => li.replace(/<\/?li>/g, "").trim()) ||
+                          [], // Remove the <li> tags and trim content
+                      },
+                    ].map((detail) => (
                       <Disclosure key={detail.name} as="div">
                         <h3>
                           <DisclosureButton className="group relative flex w-full items-center justify-between py-6 text-left">
@@ -516,46 +523,6 @@ function ProductPage() {
                             role="list"
                             className="list-disc space-y-1 pl-5 text-sm/6 text-gray-700 marker:text-gray-300"
                           >
-                            {detail.items.map((item) => (
-                              <li key={item} className="pl-2">
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
-                        </DisclosurePanel>
-                      </Disclosure>
-                    ))}
-                */}
-
-                    {[
-                      {
-                        name: "Product Description", // Section title
-                        items: product.descriptionHtml.split("\n"), // Split description into parts by line
-                      },
-                    ].map((detail) => (
-                      <Disclosure key={detail.name} as="div">
-                        <h3>
-                          <Disclosure.Button className="group relative flex w-full items-center justify-between py-6 text-left">
-                            <span className="text-sm font-medium text-gray-900 group-data-[open]:text-indigo-600">
-                              {detail.name}
-                            </span>
-                            <span className="ml-6 flex items-center">
-                              <PlusIcon
-                                aria-hidden="true"
-                                className="block size-6 text-gray-400 group-hover:text-gray-500 group-data-[open]:hidden"
-                              />
-                              <MinusIcon
-                                aria-hidden="true"
-                                className="hidden size-6 text-indigo-400 group-hover:text-indigo-500 group-data-[open]:block"
-                              />
-                            </span>
-                          </Disclosure.Button>
-                        </h3>
-                        <Disclosure.Panel className="pb-6">
-                          <ul
-                            role="list"
-                            className="list-disc space-y-1 pl-5 text-sm/6 text-gray-700 marker:text-gray-300"
-                          >
                             {detail.items.map((item, index) => (
                               <li key={index} className="pl-2">
                                 {item}{" "}
@@ -563,7 +530,7 @@ function ProductPage() {
                               </li>
                             ))}
                           </ul>
-                        </Disclosure.Panel>
+                        </DisclosurePanel>
                       </Disclosure>
                     ))}
                   </div>
