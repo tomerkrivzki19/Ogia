@@ -30,6 +30,7 @@ import {
 import { ChevronDownIcon, PlusIcon } from "@heroicons/react/20/solid";
 import useProducts from "../hooks/useProducts";
 import { useParams, useSearchParams } from "react-router-dom";
+import StotrePageTopics from "./subComponents/StotrePageTopics";
 
 const navigation = {
   categories: [
@@ -160,6 +161,7 @@ const navigation = {
     { name: "Stores", href: "#" },
   ],
 };
+// not relevnt -but good for the padding
 const breadcrumbs = [{ id: 1, name: "Men", href: "#" }];
 const filters = [
   {
@@ -328,8 +330,8 @@ function StorePage() {
             transition
             className="relative ml-auto flex size-full max-w-xs transform flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl transition duration-300 ease-in-out data-[closed]:translate-x-full"
           >
-            <div className="flex items-center justify-between px-4">
-              <h2 className="text-lg font-medium text-gray-900">Filters</h2>
+            <div className="flex items-center justify-between px-4" dir="rtl">
+              <h2 className="text-lg font-medium text-gray-900">הצג לפי</h2>
               <button
                 type="button"
                 onClick={() => setMobileFiltersOpen(false)}
@@ -442,17 +444,9 @@ function StorePage() {
           </ol>
         </nav>
       </div>
-      <main className="mx-auto max-w-2xl px-4 lg:max-w-7xl lg:px-8" dir="rtl">
-        <div className="border-b border-gray-200 pb-10 pt-24">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900">
-            New Arrivals
-          </h1>
-          <p className="mt-4 text-base text-gray-500">
-            Checkout out the latest release of Basic Tees, new and improved with
-            four openings!
-          </p>
-        </div>
 
+      <main className="mx-auto max-w-2xl px-4 lg:max-w-7xl lg:px-8" dir="rtl">
+        <StotrePageTopics normalizedType={normalizedType} />
         {/*סינון  -sorting */}
         <div className="hidden lg:flex items-center">
           <Menu as="div" className="relative inline-block text-left">
@@ -501,7 +495,7 @@ function StorePage() {
                 className="inline-flex items-center lg:hidden"
               >
                 <span className="text-sm font-medium text-gray-700">
-                  Filters
+                  הצג לפי
                 </span>
                 <PlusIcon
                   aria-hidden="true"
@@ -599,37 +593,6 @@ function StorePage() {
             </h2>
 
             <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:gap-x-8 xl:grid-cols-3">
-              {/* {products.map((product) => (
-                <div
-                  key={product.id}
-                  className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
-                >
-                  <img
-                    alt={product.imageAlt}
-                    src={product.imageSrc}
-                    className="aspect-[3/4] bg-gray-200 object-cover group-hover:opacity-75 sm:h-96"
-                  />
-                  <div className="flex flex-1 flex-col space-y-2 p-4">
-                    <h3 className="text-sm font-medium text-gray-900">
-                      <a href={product.href}>
-                        <span aria-hidden="true" className="absolute inset-0" />
-                        {product.name}
-                      </a>
-                    </h3>
-                    <p className="text-sm text-gray-500">
-                      {product.description}
-                    </p>
-                    <div className="flex flex-1 flex-col justify-end">
-                      <p className="text-sm italic text-gray-500">
-                        {product.options}
-                      </p>
-                      <p className="text-base font-medium text-gray-900">
-                        {product.price}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))} */}
               {products.map((product) => (
                 <div
                   key={product.id}
@@ -670,12 +633,6 @@ function StorePage() {
                     />
 
                     <div className="flex flex-1 flex-col justify-end">
-                      {/* Product Options */}
-                      <p className="text-sm italic text-gray-500">
-                        {product.options?.[0]?.values?.[0]?.value ||
-                          "Default Option"}
-                      </p>
-
                       {/* Product Price */}
                       <p className="text-base font-medium text-gray-900">
                         ₪
