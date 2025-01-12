@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Fragment, useState } from "react";
 import {
   Dialog,
@@ -24,6 +24,10 @@ import {
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import NavCommercialHeader from "./NavCommercialHeader";
 import logoImage from "../../public/WhatsAppImage2025-01-05at21.36.22_e3eca4b3.jpg";
+import { cartContext } from "../contexts/CartContext";
+import ShoppingCart from "./subComponents/ShopingCart";
+import Toast from "../utils/tostify";
+import { redirectToCheckout } from "../services/shopify";
 
 const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
 const navigation = {
@@ -108,8 +112,26 @@ const offers = [
     href: "#",
   },
 ];
+
 function NavContainer() {
+  const { cart, subTotal, handleRemoveItem, isCartOpen, setIsCartOpen } =
+    useContext(cartContext);
+  const tostify = new Toast();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Cart quantity
+  const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+  const checkoutLink = () => {
+    try {
+      if (cart.length === 0)
+        return tostify.createToast("warning", "אנא מלא/י את הסל קודם ");
+
+      redirectToCheckout();
+    } catch (error) {
+      tostify.createToast("warning", " שגיעה במעבר אנא נסה במועד מאוחר יותר ");
+    }
+  };
 
   return (
     <div>
@@ -249,6 +271,16 @@ function NavContainer() {
                             ))}
                           </ul>
                         </div>
+
+                        <div>
+                          <a
+                            id="mobile-brand-heading"
+                            href="/store"
+                            // className="font-medium text-gray-900"
+                          >
+                            הכל
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </TabPanel>
@@ -355,107 +387,74 @@ function NavContainer() {
 
                               <div className="relative bg-white">
                                 <div className="mx-auto max-w-7xl px-8">
-                                  <div className="grid grid-cols-2 items-start gap-x-8 gap-y-10 pb-12 pt-10">
-                                    <div className="grid grid-cols-2 gap-x-8 gap-y-10">
-                                      <div>
-                                        <p
-                                          id={`desktop-IndividuaBakedGoodslDesserts-heading-${categoryIdx}`}
-                                          className="font-medium text-gray-900"
-                                        >
-                                          מאפים
-                                        </p>
-                                        <ul
-                                          role="list"
-                                          aria-labelledby={`desktop-IndividuaBakedGoodslDesserts-heading-${categoryIdx}`}
-                                          className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                        >
-                                          {category.BakedGoods.map((item) => (
-                                            <li
-                                              key={item.name}
-                                              className="flex"
+                                  <div className="grid grid-cols-5 gap-x-8 gap-y-10 pb-12 pt-10">
+                                    {/* Section 2 */}
+                                    <div>
+                                      <p
+                                        id={`desktop-IndividuaBakedGoodslDesserts-heading-${categoryIdx}`}
+                                        className="font-medium text-gray-900"
+                                      >
+                                        מאפים
+                                      </p>
+                                      <ul
+                                        role="list"
+                                        aria-labelledby={`desktop-IndividuaBakedGoodslDesserts-heading-${categoryIdx}`}
+                                        className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
+                                      >
+                                        {category.BakedGoods.map((item) => (
+                                          <li key={item.name} className="flex">
+                                            <a
+                                              href={item.href}
+                                              className="hover:text-gray-800"
                                             >
-                                              <a
-                                                href={item.href}
-                                                className="hover:text-gray-800"
-                                              >
-                                                {item.name}
-                                              </a>
-                                            </li>
-                                          ))}
-                                        </ul>
-                                      </div>
-                                      <div>
-                                        <p
-                                          id="desktop-GiftBoxes-heading"
-                                          className="font-medium text-gray-900"
-                                        >
-                                          מארזים
-                                        </p>
-                                        <ul
-                                          role="list"
-                                          aria-labelledby="desktop-GiftBoxes-heading"
-                                          className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                        >
-                                          {category.GiftBoxes.map((item) => (
-                                            <li
-                                              key={item.name}
-                                              className="flex"
-                                            >
-                                              <a
-                                                href={item.href}
-                                                className="hover:text-gray-800"
-                                              >
-                                                {item.name}
-                                              </a>
-                                            </li>
-                                          ))}
-                                        </ul>
-                                      </div>
+                                              {item.name}
+                                            </a>
+                                          </li>
+                                        ))}
+                                      </ul>
                                     </div>
-                                    <div className="grid grid-cols-2 gap-x-8 gap-y-10">
-                                      <div>
-                                        <p
-                                          id="desktop-IndividualDesserts-heading"
-                                          className="font-medium text-gray-900"
-                                        >
-                                          קינוחים אישיים
-                                        </p>
-                                        <ul
-                                          role="list"
-                                          aria-labelledby="desktop-IndividualDesserts-heading"
-                                          className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                        >
-                                          {category.IndividualDesserts.map(
-                                            (item) => (
-                                              <li
-                                                key={item.name}
-                                                className="flex"
-                                              >
-                                                <a
-                                                  href={item.href}
-                                                  className="hover:text-gray-800"
-                                                >
-                                                  {item.name}
-                                                </a>
-                                              </li>
-                                            )
-                                          )}
-                                        </ul>
-                                      </div>
 
-                                      <div>
-                                        <p
-                                          id="desktop-brand-heading"
-                                          className="font-medium text-gray-900"
-                                        >
-                                          גלידות
-                                        </p>
-                                        <ul
-                                          role="list"
-                                          aria-labelledby="desktop-brand-heading"
-                                          className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                                        >
-                                          {category.IceCreams.map((item) => (
+                                    {/* Section 3 */}
+                                    <div>
+                                      <p
+                                        id="desktop-GiftBoxes-heading"
+                                        className="font-medium text-gray-900"
+                                      >
+                                        מארזים
+                                      </p>
+                                      <ul
+                                        role="list"
+                                        aria-labelledby="desktop-GiftBoxes-heading"
+                                        className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
+                                      >
+                                        {category.GiftBoxes.map((item) => (
+                                          <li key={item.name} className="flex">
+                                            <a
+                                              href={item.href}
+                                              className="hover:text-gray-800"
+                                            >
+                                              {item.name}
+                                            </a>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </div>
+
+                                    {/* Section 4 */}
+                                    <div>
+                                      <p
+                                        id="desktop-IndividualDesserts-heading"
+                                        className="font-medium text-gray-900"
+                                      >
+                                        קינוחים אישיים
+                                      </p>
+                                      <ul
+                                        role="list"
+                                        aria-labelledby="desktop-IndividualDesserts-heading"
+                                        className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
+                                      >
+                                        {category.IndividualDesserts.map(
+                                          (item) => (
                                             <li
                                               key={item.name}
                                               className="flex"
@@ -467,9 +466,62 @@ function NavContainer() {
                                                 {item.name}
                                               </a>
                                             </li>
-                                          ))}
-                                        </ul>
-                                      </div>
+                                          )
+                                        )}
+                                      </ul>
+                                    </div>
+
+                                    {/* Section 5 */}
+                                    <div>
+                                      <p
+                                        id="desktop-brand-heading"
+                                        className="font-medium text-gray-900"
+                                      >
+                                        גלידות
+                                      </p>
+                                      <ul
+                                        role="list"
+                                        aria-labelledby="desktop-brand-heading"
+                                        className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
+                                      >
+                                        {category.IceCreams.map((item) => (
+                                          <li key={item.name} className="flex">
+                                            <a
+                                              href={item.href}
+                                              className="hover:text-gray-800"
+                                            >
+                                              {item.name}
+                                            </a>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                    {/* Section 1 */}
+                                    <div>
+                                      <p
+                                        id="desktop-brand-heading"
+                                        className="font-medium text-gray-900"
+                                      ></p>
+                                      <ul
+                                        role="list"
+                                        aria-labelledby="desktop-brand-heading"
+                                        className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
+                                      >
+                                        {category.IceCreams.map((item) => (
+                                          <li key={item.name} className="flex">
+                                            <a
+                                              href={"/store"}
+                                              className="hover:text-gray-800"
+                                            >
+                                              מעבר להכל
+                                              <span aria-hidden="true">
+                                                {" "}
+                                                &rarr;
+                                              </span>
+                                            </a>
+                                          </li>
+                                        ))}
+                                      </ul>
                                     </div>
                                   </div>
                                 </div>
@@ -553,23 +605,15 @@ function NavContainer() {
                         className="mx-4 h-6 w-px bg-gray-200 lg:mx-6"
                       />
 
-                      <div className="flow-root">
-                        <a
-                          href="#"
-                          className="group -m-2 flex items-center p-2"
-                        >
-                          <ShoppingCartIcon
-                            aria-hidden="true"
-                            className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
-                          />
-                          <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                            0
-                          </span>
-                          <span className="sr-only">
-                            items in cart, view bag
-                          </span>
-                        </a>
-                      </div>
+                      <ShoppingCart
+                        totalQuantity={totalQuantity}
+                        products={cart}
+                        checkoutLink={checkoutLink}
+                        subTotal={subTotal}
+                        handleRemoveItem={handleRemoveItem}
+                        isCartOpen={isCartOpen}
+                        setIsCartOpen={setIsCartOpen}
+                      />
                     </div>
                   </div>
                 </div>

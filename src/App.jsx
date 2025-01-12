@@ -12,20 +12,23 @@ import Takanon from "./components/Takanon";
 import Error404 from "./components/Error404";
 import ProductPage from "./components/ProductPage";
 import StorePage from "./components/StorePage";
+import { CartProvider } from "./contexts/CartContext";
 
 function App() {
   return (
     <Router>
-      <NavContainer />
-      <Routes>
-        <Route path="*" element={<Error404 />} />
-        <Route path="/" element={<MainPage />} />
-        <Route path="/contact" element={<ContanctMe />} />
-        <Route path="/faq" element={<QandAComponent />} />
-        <Route path="/takanon" element={<Takanon />} />
-        <Route path="/store/:type?" element={<StorePage />} />
-        <Route path="/product/:handle" element={<ProductPage />} />
-      </Routes>
+      <CartProvider>
+        <NavContainer />
+        <Routes>
+          <Route path="*" element={<Error404 />} />
+          <Route path="/" element={<MainPage />} />
+          <Route path="/contact" element={<ContanctMe />} />
+          <Route path="/faq" element={<QandAComponent />} />
+          <Route path="/takanon" element={<Takanon />} />
+          <Route path="/store/:type?" element={<StorePage />} />
+          <Route path="/product/:handle" element={<ProductPage />} />
+        </Routes>
+      </CartProvider>
     </Router>
   );
 }

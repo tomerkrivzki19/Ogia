@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Fragment, useState } from "react";
 import {
   Dialog,
@@ -29,9 +29,15 @@ import {
   UserIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { StarIcon } from "@heroicons/react/20/solid";
+
+import {
+  StarIcon,
+  HeartIcon as SolidHeartIcon,
+} from "@heroicons/react/20/solid";
 import useProduct from "../hooks/useProduct";
 import { useParams } from "react-router-dom";
+import { cartContext } from "../contexts/CartContext";
+import Toast from "../utils/tostify";
 
 const navigation = {
   categories: [
@@ -320,14 +326,39 @@ function classNames(...classes) {
 
 function ProductPage() {
   const { handle } = useParams();
-  console.log("handle", handle);
+  const { addToCart } = useContext(cartContext);
   const [open, setOpen] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(
-    localStorage.getItem("favorites")
-  );
+  const [loadingIndex, setLoadingIndex] = useState(true); // Manage which button is loading
+
   //   const { product, products, isFavorite, setIsFavorite, loading } =
   //     useProduct(handle);
   const { product, loading } = useProduct(handle);
+  const tostify = new Toast();
+
+  const handleAddCart = async (variantId, quantity) => {
+    setLoadingIndex(false);
+    console.log("1", variantId);
+    console.log("2", quantity);
+
+    try {
+      await addToCart(variantId, quantity);
+      // setLoadingIndex(false);
+
+      // Show "נוסף לסל" for 6 seconds
+      setTimeout(() => {
+        setLoadingIndex(true); // Reset loadingIndex to show "הוסף לסל" after 6 seconds
+      }, 15000);
+    } catch (error) {
+      tostify.createToast(
+        "error",
+        "הוספת הפריט לעגלת הקניות נכשלה. אנא נסה שוב"
+      );
+      throw new Error("err adding to cart ");
+
+      return;
+    }
+  };
+
   // console.log("product", product);
   // console.log("product", product.descriptionHtml.split("\n"));
 
@@ -451,13 +482,49 @@ function ProductPage() {
 
                 <form className="mt-6">
                   <div className="mt-10 flex">
-                    <button
+                    {/* <button
                       type="submit"
                       className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
                     >
                       Add to bag
-                    </button>
-
+                    </button> */}
+                    {!product.availableForSale ? (
+                      <button
+                        className=" cursor-not-allowed flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent px-8 py-3 text-base font-medium text-indigo-600 border-indigo-600  focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full "
+                        disabled
+                      >
+                        נגמר המלאי
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => handleAddCart(product.variants[0].id, 1)}
+                        type="button"
+                        className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full "
+                      >
+                        {!loadingIndex ? (
+                          // <div className="w-5 h-5 border-4 border-white border-t-transparent border-solid rounded-full animate-spin"></div>
+                          <div className="flex gap-2 animate-fade-left animate-delay-300">
+                            נוסף לסל
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="size-6"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"
+                              />
+                            </svg>
+                          </div>
+                        ) : (
+                          "הוסף לסל"
+                        )}
+                      </button>
+                    )}
                     <button
                       type="button"
                       className="ml-4 flex items-center justify-center rounded-md px-3 py-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
