@@ -38,6 +38,7 @@ import useProduct from "../hooks/useProduct";
 import { useParams } from "react-router-dom";
 import { cartContext } from "../contexts/CartContext";
 import Toast from "../utils/tostify";
+import ScroolingImages from "./subComponents/ScroolingImages";
 
 const navigation = {
   categories: [
@@ -279,17 +280,223 @@ const navigation = {
 //     // More sections...
 //   ],
 // };
+// const relatedProducts = [
+//   {
+//     id: 1,
+//     name: "Zip Tote Basket",
+//     color: "White and black",
+//     href: "#",
+//     imageSrc:
+//       "https://tailwindui.com/plus/img/ecommerce-images/product-page-03-related-product-01.jpg",
+//     imageAlt:
+//       "Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.",
+//     price: "$140",
+//   },
+//   // More products...
+// ];
 const relatedProducts = [
   {
-    id: 1,
-    name: "Zip Tote Basket",
-    color: "White and black",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/product-page-03-related-product-01.jpg",
-    imageAlt:
-      "Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.",
-    price: "$140",
+    id: "gid://shopify/Product/7713836138577",
+    availableForSale: true,
+    createdAt: "2025-01-10T14:39:15Z",
+    updatedAt: "2025-01-11T13:37:56Z",
+    descriptionHtml:
+      "<h3>מוס שקדים פיסטוק מעודן מפרלינה בהכנה ביתית עם קוביות בראוניז מוזהבות וקצפת. בפסח מבקשים ממני מתכונים מחומרים שיש בכל סופר ולא בחנויות מתמחות. אז הכנתי לכם מוס מרשים וקליל שיוכל לשמש קינוח לליל הסדר כי הוא פרווה. השתמשתי בשמנת צמחית של תנובה שניתן להשיג בכל סופר.</h3>\n<p> </p>\n<p><strong>פרלינה שקדים פיסטוק</strong></p>\n<p>125 גרם פיסטוק</p>\n<p>125 גרם שקדים</p>\n<p>200 גרם סוכר</p>\n<p>קורט מלח</p>",
+    description:
+      "מוס שקדים פיסטוק מעודן מפרלינה בהכנה ביתית עם קוביות בראוניז מוזהבות וקצפת. בפסח מבקשים ממני מתכונים מחומרים שיש בכל סופר ולא בחנויות מתמחות. אז הכנתי לכם מוס מרשים וקליל שיוכל לשמש קינוח לליל הסדר כי הוא פרווה. השתמשתי בשמנת צמחית של תנובה שניתן להשיג בכל סופר. פרלינה שקדים פיסטוק 125 גרם פיסטוק 125 גרם שקדים 200 גרם סוכר קורט מלח",
+    handle: "קינוחי-כוסות-copy-4",
+    productType: "מארזים",
+    title: "קינוחי כוסות (Copy 4)",
+    vendor: "OgiaStore",
+    publishedAt: "2025-01-10T14:39:15Z",
+    onlineStoreUrl: null,
+    options: [
+      {
+        id: "gid://shopify/ProductOption/9820675735633",
+        name: "Title",
+        values: [
+          {
+            value: "Default Title",
+            type: {
+              name: "String",
+              kind: "SCALAR",
+            },
+          },
+        ],
+        type: {
+          name: "ProductOption",
+          kind: "OBJECT",
+          fieldBaseTypes: {
+            name: "String",
+            values: "String",
+          },
+          implementsNode: true,
+        },
+      },
+    ],
+    images: [
+      {
+        id: "gid://shopify/ProductImage/34945957396561",
+        src: "https://cdn.shopify.com/s/files/1/0647/9426/3633/files/WhatsAppImage2025-01-10at16.36.37_6bf2f178.jpg?v=1736519804",
+        altText: null,
+        width: 900,
+        height: 1600,
+        type: {
+          name: "Image",
+          kind: "OBJECT",
+          fieldBaseTypes: {
+            altText: "String",
+            height: "Int",
+            id: "ID",
+            url: "URL",
+            width: "Int",
+          },
+          implementsNode: false,
+        },
+        hasNextPage: false,
+        hasPreviousPage: false,
+        variableValues: {
+          handle: "קינוחי-כוסות-copy-4",
+        },
+      },
+    ],
+    variants: [
+      {
+        id: "gid://shopify/ProductVariant/42157095223377",
+        title: "Default Title",
+        price: {
+          amount: "605.0",
+          currencyCode: "ILS",
+          type: {
+            name: "MoneyV2",
+            kind: "OBJECT",
+            fieldBaseTypes: {
+              amount: "Decimal",
+              currencyCode: "CurrencyCode",
+            },
+            implementsNode: false,
+          },
+        },
+        priceV2: {
+          amount: "605.0",
+          currencyCode: "ILS",
+          type: {
+            name: "MoneyV2",
+            kind: "OBJECT",
+            fieldBaseTypes: {
+              amount: "Decimal",
+              currencyCode: "CurrencyCode",
+            },
+            implementsNode: false,
+          },
+        },
+        weight: 0,
+        available: true,
+        sku: null,
+        compareAtPrice: null,
+        compareAtPriceV2: null,
+        image: {
+          id: "gid://shopify/ProductImage/34945957396561",
+          src: "https://cdn.shopify.com/s/files/1/0647/9426/3633/files/WhatsAppImage2025-01-10at16.36.37_6bf2f178.jpg?v=1736519804",
+          altText: null,
+          width: 900,
+          height: 1600,
+          type: {
+            name: "Image",
+            kind: "OBJECT",
+            fieldBaseTypes: {
+              altText: "String",
+              height: "Int",
+              id: "ID",
+              url: "URL",
+              width: "Int",
+            },
+            implementsNode: false,
+          },
+        },
+        selectedOptions: [
+          {
+            name: "Title",
+            value: "Default Title",
+            type: {
+              name: "SelectedOption",
+              kind: "OBJECT",
+              fieldBaseTypes: {
+                name: "String",
+                value: "String",
+              },
+              implementsNode: false,
+            },
+          },
+        ],
+        unitPrice: null,
+        unitPriceMeasurement: {
+          measuredType: null,
+          quantityUnit: null,
+          quantityValue: 0,
+          referenceUnit: null,
+          referenceValue: 0,
+          type: {
+            name: "UnitPriceMeasurement",
+            kind: "OBJECT",
+            fieldBaseTypes: {
+              measuredType: "UnitPriceMeasurementMeasuredType",
+              quantityUnit: "UnitPriceMeasurementMeasuredUnit",
+              quantityValue: "Float",
+              referenceUnit: "UnitPriceMeasurementMeasuredUnit",
+              referenceValue: "Int",
+            },
+            implementsNode: false,
+          },
+        },
+        type: {
+          name: "ProductVariant",
+          kind: "OBJECT",
+          fieldBaseTypes: {
+            availableForSale: "Boolean",
+            compareAtPrice: "MoneyV2",
+            id: "ID",
+            image: "Image",
+            price: "MoneyV2",
+            product: "Product",
+            selectedOptions: "SelectedOption",
+            sku: "String",
+            title: "String",
+            unitPrice: "MoneyV2",
+            unitPriceMeasurement: "UnitPriceMeasurement",
+            weight: "Float",
+          },
+          implementsNode: true,
+        },
+        hasNextPage: false,
+        hasPreviousPage: false,
+        variableValues: {
+          handle: "קינוחי-כוסות-copy-4",
+        },
+      },
+    ],
+    type: {
+      name: "Product",
+      kind: "OBJECT",
+      fieldBaseTypes: {
+        availableForSale: "Boolean",
+        createdAt: "DateTime",
+        description: "String",
+        descriptionHtml: "HTML",
+        handle: "String",
+        id: "ID",
+        images: "ImageConnection",
+        onlineStoreUrl: "URL",
+        options: "ProductOption",
+        productType: "String",
+        publishedAt: "DateTime",
+        title: "String",
+        updatedAt: "DateTime",
+        variants: "ProductVariantConnection",
+        vendor: "String",
+      },
+      implementsNode: true,
+    },
   },
   // More products...
 ];
@@ -334,6 +541,8 @@ function ProductPage() {
   //     useProduct(handle);
   const { product, loading } = useProduct(handle);
   const tostify = new Toast();
+
+  console.log(product);
 
   const handleAddCart = async (variantId, quantity) => {
     setLoadingIndex(false);
@@ -605,6 +814,7 @@ function ProductPage() {
               </div>
             </div>
 
+            {/* related products section  */}
             <section
               aria-labelledby="related-heading"
               className="mt-10 border-t border-gray-200 px-4 py-16 sm:px-0"
@@ -616,8 +826,8 @@ function ProductPage() {
                 Customers also bought
               </h2>
 
-              <div className="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
-                {relatedProducts.map((product) => (
+              {/* <div className="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"> */}
+              {/* {relatedProducts.map((product) => (
                   <div key={product.id}>
                     <div className="relative">
                       <div className="relative h-72 w-full overflow-hidden rounded-lg">
@@ -655,8 +865,9 @@ function ProductPage() {
                       </a>
                     </div>
                   </div>
-                ))}
-              </div>
+                ))} */}
+              <ScroolingImages products={relatedProducts} />
+              {/* </div> */}
             </section>
           </div>
         </main>

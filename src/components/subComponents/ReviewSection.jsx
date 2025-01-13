@@ -16,7 +16,7 @@ const reviews = [
     `,
     author: "יוסי לוי",
     avatarSrc:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixqx=oilqXxSqey&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      "https://eu.ui-avatars.com/api/?name=%D7%99%D7%95%D7%A1%D7%99+%D7%9C%D7%95%D7%99&size=250",
   },
   {
     id: 2,
@@ -26,8 +26,7 @@ const reviews = [
       <p>כשהחלטנו להביא עוגות אישיות לאירוע שלנו, לא ציפינו שהן יהיו כל כך יפות וטעימות! רק כוכב אחד פחות כי הייתי רוצה שהציפוי יהיה קצת יותר מתוק.</p>
     `,
     author: "נועה כהן",
-    avatarSrc:
-      "https://images.unsplash.com/photo-1520785643438-5bf77931f493?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.5&w=256&h=256&q=80",
+    avatarSrc: "https://eu.ui-avatars.com/api/?name=noa+cohen&size=250",
   },
   {
     id: 3,
@@ -49,7 +48,7 @@ const reviews = [
     `,
     author: "אילן שמואלי",
     avatarSrc:
-      "https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2.5&w=256&h=256&q=80",
+      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2.5&w=256&h=256&q=80",
   },
   {
     id: 5,
@@ -60,7 +59,7 @@ const reviews = [
     `,
     author: "רונית דגן",
     avatarSrc:
-      "https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      "https://eu.ui-avatars.com/api/?name=%D7%93%D7%92%D7%9F+%D7%A8%D7%95%D7%A0%D7%99%D7%AA&size=250",
   },
   {
     id: 6,
@@ -71,7 +70,7 @@ const reviews = [
     `,
     author: "מירב אביגיל",
     avatarSrc:
-      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2.5&w=256&h=256&q=80",
+      "https://eu.ui-avatars.com/api/?name=%D7%9E%D7%99%D7%A8%D7%91+%D7%90%D7%91%D7%99%D7%92%D7%99%D7%9C&size=250",
   },
 ];
 

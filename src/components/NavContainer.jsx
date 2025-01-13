@@ -384,8 +384,8 @@ function NavContainer() {
                                 aria-hidden="true"
                                 className="absolute inset-0 top-1/2 bg-white shadow"
                               />
-
-                              <div className="relative bg-white">
+                              {/* TODO: ADDON DIR  */}
+                              <div className="relative bg-white " dir="rtl">
                                 <div className="mx-auto max-w-7xl px-8">
                                   <div className="grid grid-cols-5 gap-x-8 gap-y-10 pb-12 pt-10">
                                     {/* Section 2 */}
