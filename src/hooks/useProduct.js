@@ -2,8 +2,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  fetchProductById,
-  fetchTopSellingProducts,
+  fetchProductById, //not relevnt-FIXME:
+  fetchTopSellingProducts, //not relevnt -FIXME:
   fetchProductByHandle,
 } from "../services/shopify";
 
@@ -12,7 +12,7 @@ const useProduct = (handle) => {
   const [product, setProduct] = useState(null);
   //   const [products, setProducts] = useState([]);
   //   const [isFavorite, setIsFavorite] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [loadingProduct, setLoadingProduct] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const useProduct = (handle) => {
           return;
         }
 
-        const topProducts = await fetchTopSellingProducts(4);
+        // const topProducts = await fetchTopSellingProducts(4);
         setProduct(productData);
         // setProducts(topProducts);
 
@@ -36,7 +36,7 @@ const useProduct = (handle) => {
         console.error("Error fetching product:", error);
         navigate("/500"); // Navigate to a 500 error page on failure
       } finally {
-        setLoading(false); // Stop loading indicator
+        setLoadingProduct(false); // Stop loading indicator
       }
     };
 
@@ -45,7 +45,7 @@ const useProduct = (handle) => {
   }, [navigate]);
   // isFavorite
   //   return { product, products, setIsFavorite, loading };
-  return { product, loading };
+  return { product, loadingProduct };
 };
 
 export default useProduct;

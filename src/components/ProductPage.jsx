@@ -39,6 +39,8 @@ import { useParams } from "react-router-dom";
 import { cartContext } from "../contexts/CartContext";
 import Toast from "../utils/tostify";
 import ScroolingImages from "./subComponents/ScroolingImages";
+import relatedProducts from "../hooks/relatedProducts";
+import Spinner from "./subComponents/Spinner";
 
 const navigation = {
   categories: [
@@ -294,212 +296,212 @@ const navigation = {
 //   },
 //   // More products...
 // ];
-const relatedProducts = [
-  {
-    id: "gid://shopify/Product/7713836138577",
-    availableForSale: true,
-    createdAt: "2025-01-10T14:39:15Z",
-    updatedAt: "2025-01-11T13:37:56Z",
-    descriptionHtml:
-      "<h3>מוס שקדים פיסטוק מעודן מפרלינה בהכנה ביתית עם קוביות בראוניז מוזהבות וקצפת. בפסח מבקשים ממני מתכונים מחומרים שיש בכל סופר ולא בחנויות מתמחות. אז הכנתי לכם מוס מרשים וקליל שיוכל לשמש קינוח לליל הסדר כי הוא פרווה. השתמשתי בשמנת צמחית של תנובה שניתן להשיג בכל סופר.</h3>\n<p> </p>\n<p><strong>פרלינה שקדים פיסטוק</strong></p>\n<p>125 גרם פיסטוק</p>\n<p>125 גרם שקדים</p>\n<p>200 גרם סוכר</p>\n<p>קורט מלח</p>",
-    description:
-      "מוס שקדים פיסטוק מעודן מפרלינה בהכנה ביתית עם קוביות בראוניז מוזהבות וקצפת. בפסח מבקשים ממני מתכונים מחומרים שיש בכל סופר ולא בחנויות מתמחות. אז הכנתי לכם מוס מרשים וקליל שיוכל לשמש קינוח לליל הסדר כי הוא פרווה. השתמשתי בשמנת צמחית של תנובה שניתן להשיג בכל סופר. פרלינה שקדים פיסטוק 125 גרם פיסטוק 125 גרם שקדים 200 גרם סוכר קורט מלח",
-    handle: "קינוחי-כוסות-copy-4",
-    productType: "מארזים",
-    title: "קינוחי כוסות (Copy 4)",
-    vendor: "OgiaStore",
-    publishedAt: "2025-01-10T14:39:15Z",
-    onlineStoreUrl: null,
-    options: [
-      {
-        id: "gid://shopify/ProductOption/9820675735633",
-        name: "Title",
-        values: [
-          {
-            value: "Default Title",
-            type: {
-              name: "String",
-              kind: "SCALAR",
-            },
-          },
-        ],
-        type: {
-          name: "ProductOption",
-          kind: "OBJECT",
-          fieldBaseTypes: {
-            name: "String",
-            values: "String",
-          },
-          implementsNode: true,
-        },
-      },
-    ],
-    images: [
-      {
-        id: "gid://shopify/ProductImage/34945957396561",
-        src: "https://cdn.shopify.com/s/files/1/0647/9426/3633/files/WhatsAppImage2025-01-10at16.36.37_6bf2f178.jpg?v=1736519804",
-        altText: null,
-        width: 900,
-        height: 1600,
-        type: {
-          name: "Image",
-          kind: "OBJECT",
-          fieldBaseTypes: {
-            altText: "String",
-            height: "Int",
-            id: "ID",
-            url: "URL",
-            width: "Int",
-          },
-          implementsNode: false,
-        },
-        hasNextPage: false,
-        hasPreviousPage: false,
-        variableValues: {
-          handle: "קינוחי-כוסות-copy-4",
-        },
-      },
-    ],
-    variants: [
-      {
-        id: "gid://shopify/ProductVariant/42157095223377",
-        title: "Default Title",
-        price: {
-          amount: "605.0",
-          currencyCode: "ILS",
-          type: {
-            name: "MoneyV2",
-            kind: "OBJECT",
-            fieldBaseTypes: {
-              amount: "Decimal",
-              currencyCode: "CurrencyCode",
-            },
-            implementsNode: false,
-          },
-        },
-        priceV2: {
-          amount: "605.0",
-          currencyCode: "ILS",
-          type: {
-            name: "MoneyV2",
-            kind: "OBJECT",
-            fieldBaseTypes: {
-              amount: "Decimal",
-              currencyCode: "CurrencyCode",
-            },
-            implementsNode: false,
-          },
-        },
-        weight: 0,
-        available: true,
-        sku: null,
-        compareAtPrice: null,
-        compareAtPriceV2: null,
-        image: {
-          id: "gid://shopify/ProductImage/34945957396561",
-          src: "https://cdn.shopify.com/s/files/1/0647/9426/3633/files/WhatsAppImage2025-01-10at16.36.37_6bf2f178.jpg?v=1736519804",
-          altText: null,
-          width: 900,
-          height: 1600,
-          type: {
-            name: "Image",
-            kind: "OBJECT",
-            fieldBaseTypes: {
-              altText: "String",
-              height: "Int",
-              id: "ID",
-              url: "URL",
-              width: "Int",
-            },
-            implementsNode: false,
-          },
-        },
-        selectedOptions: [
-          {
-            name: "Title",
-            value: "Default Title",
-            type: {
-              name: "SelectedOption",
-              kind: "OBJECT",
-              fieldBaseTypes: {
-                name: "String",
-                value: "String",
-              },
-              implementsNode: false,
-            },
-          },
-        ],
-        unitPrice: null,
-        unitPriceMeasurement: {
-          measuredType: null,
-          quantityUnit: null,
-          quantityValue: 0,
-          referenceUnit: null,
-          referenceValue: 0,
-          type: {
-            name: "UnitPriceMeasurement",
-            kind: "OBJECT",
-            fieldBaseTypes: {
-              measuredType: "UnitPriceMeasurementMeasuredType",
-              quantityUnit: "UnitPriceMeasurementMeasuredUnit",
-              quantityValue: "Float",
-              referenceUnit: "UnitPriceMeasurementMeasuredUnit",
-              referenceValue: "Int",
-            },
-            implementsNode: false,
-          },
-        },
-        type: {
-          name: "ProductVariant",
-          kind: "OBJECT",
-          fieldBaseTypes: {
-            availableForSale: "Boolean",
-            compareAtPrice: "MoneyV2",
-            id: "ID",
-            image: "Image",
-            price: "MoneyV2",
-            product: "Product",
-            selectedOptions: "SelectedOption",
-            sku: "String",
-            title: "String",
-            unitPrice: "MoneyV2",
-            unitPriceMeasurement: "UnitPriceMeasurement",
-            weight: "Float",
-          },
-          implementsNode: true,
-        },
-        hasNextPage: false,
-        hasPreviousPage: false,
-        variableValues: {
-          handle: "קינוחי-כוסות-copy-4",
-        },
-      },
-    ],
-    type: {
-      name: "Product",
-      kind: "OBJECT",
-      fieldBaseTypes: {
-        availableForSale: "Boolean",
-        createdAt: "DateTime",
-        description: "String",
-        descriptionHtml: "HTML",
-        handle: "String",
-        id: "ID",
-        images: "ImageConnection",
-        onlineStoreUrl: "URL",
-        options: "ProductOption",
-        productType: "String",
-        publishedAt: "DateTime",
-        title: "String",
-        updatedAt: "DateTime",
-        variants: "ProductVariantConnection",
-        vendor: "String",
-      },
-      implementsNode: true,
-    },
-  },
-  // More products...
-];
+// const relatedProducts = [
+//   {
+//     id: "gid://shopify/Product/7713836138577",
+//     availableForSale: true,
+//     createdAt: "2025-01-10T14:39:15Z",
+//     updatedAt: "2025-01-11T13:37:56Z",
+//     descriptionHtml:
+//       "<h3>מוס שקדים פיסטוק מעודן מפרלינה בהכנה ביתית עם קוביות בראוניז מוזהבות וקצפת. בפסח מבקשים ממני מתכונים מחומרים שיש בכל סופר ולא בחנויות מתמחות. אז הכנתי לכם מוס מרשים וקליל שיוכל לשמש קינוח לליל הסדר כי הוא פרווה. השתמשתי בשמנת צמחית של תנובה שניתן להשיג בכל סופר.</h3>\n<p> </p>\n<p><strong>פרלינה שקדים פיסטוק</strong></p>\n<p>125 גרם פיסטוק</p>\n<p>125 גרם שקדים</p>\n<p>200 גרם סוכר</p>\n<p>קורט מלח</p>",
+//     description:
+//       "מוס שקדים פיסטוק מעודן מפרלינה בהכנה ביתית עם קוביות בראוניז מוזהבות וקצפת. בפסח מבקשים ממני מתכונים מחומרים שיש בכל סופר ולא בחנויות מתמחות. אז הכנתי לכם מוס מרשים וקליל שיוכל לשמש קינוח לליל הסדר כי הוא פרווה. השתמשתי בשמנת צמחית של תנובה שניתן להשיג בכל סופר. פרלינה שקדים פיסטוק 125 גרם פיסטוק 125 גרם שקדים 200 גרם סוכר קורט מלח",
+//     handle: "קינוחי-כוסות-copy-4",
+//     productType: "מארזים",
+//     title: "קינוחי כוסות (Copy 4)",
+//     vendor: "OgiaStore",
+//     publishedAt: "2025-01-10T14:39:15Z",
+//     onlineStoreUrl: null,
+//     options: [
+//       {
+//         id: "gid://shopify/ProductOption/9820675735633",
+//         name: "Title",
+//         values: [
+//           {
+//             value: "Default Title",
+//             type: {
+//               name: "String",
+//               kind: "SCALAR",
+//             },
+//           },
+//         ],
+//         type: {
+//           name: "ProductOption",
+//           kind: "OBJECT",
+//           fieldBaseTypes: {
+//             name: "String",
+//             values: "String",
+//           },
+//           implementsNode: true,
+//         },
+//       },
+//     ],
+//     images: [
+//       {
+//         id: "gid://shopify/ProductImage/34945957396561",
+//         src: "https://cdn.shopify.com/s/files/1/0647/9426/3633/files/WhatsAppImage2025-01-10at16.36.37_6bf2f178.jpg?v=1736519804",
+//         altText: null,
+//         width: 900,
+//         height: 1600,
+//         type: {
+//           name: "Image",
+//           kind: "OBJECT",
+//           fieldBaseTypes: {
+//             altText: "String",
+//             height: "Int",
+//             id: "ID",
+//             url: "URL",
+//             width: "Int",
+//           },
+//           implementsNode: false,
+//         },
+//         hasNextPage: false,
+//         hasPreviousPage: false,
+//         variableValues: {
+//           handle: "קינוחי-כוסות-copy-4",
+//         },
+//       },
+//     ],
+//     variants: [
+//       {
+//         id: "gid://shopify/ProductVariant/42157095223377",
+//         title: "Default Title",
+//         price: {
+//           amount: "605.0",
+//           currencyCode: "ILS",
+//           type: {
+//             name: "MoneyV2",
+//             kind: "OBJECT",
+//             fieldBaseTypes: {
+//               amount: "Decimal",
+//               currencyCode: "CurrencyCode",
+//             },
+//             implementsNode: false,
+//           },
+//         },
+//         priceV2: {
+//           amount: "605.0",
+//           currencyCode: "ILS",
+//           type: {
+//             name: "MoneyV2",
+//             kind: "OBJECT",
+//             fieldBaseTypes: {
+//               amount: "Decimal",
+//               currencyCode: "CurrencyCode",
+//             },
+//             implementsNode: false,
+//           },
+//         },
+//         weight: 0,
+//         available: true,
+//         sku: null,
+//         compareAtPrice: null,
+//         compareAtPriceV2: null,
+//         image: {
+//           id: "gid://shopify/ProductImage/34945957396561",
+//           src: "https://cdn.shopify.com/s/files/1/0647/9426/3633/files/WhatsAppImage2025-01-10at16.36.37_6bf2f178.jpg?v=1736519804",
+//           altText: null,
+//           width: 900,
+//           height: 1600,
+//           type: {
+//             name: "Image",
+//             kind: "OBJECT",
+//             fieldBaseTypes: {
+//               altText: "String",
+//               height: "Int",
+//               id: "ID",
+//               url: "URL",
+//               width: "Int",
+//             },
+//             implementsNode: false,
+//           },
+//         },
+//         selectedOptions: [
+//           {
+//             name: "Title",
+//             value: "Default Title",
+//             type: {
+//               name: "SelectedOption",
+//               kind: "OBJECT",
+//               fieldBaseTypes: {
+//                 name: "String",
+//                 value: "String",
+//               },
+//               implementsNode: false,
+//             },
+//           },
+//         ],
+//         unitPrice: null,
+//         unitPriceMeasurement: {
+//           measuredType: null,
+//           quantityUnit: null,
+//           quantityValue: 0,
+//           referenceUnit: null,
+//           referenceValue: 0,
+//           type: {
+//             name: "UnitPriceMeasurement",
+//             kind: "OBJECT",
+//             fieldBaseTypes: {
+//               measuredType: "UnitPriceMeasurementMeasuredType",
+//               quantityUnit: "UnitPriceMeasurementMeasuredUnit",
+//               quantityValue: "Float",
+//               referenceUnit: "UnitPriceMeasurementMeasuredUnit",
+//               referenceValue: "Int",
+//             },
+//             implementsNode: false,
+//           },
+//         },
+//         type: {
+//           name: "ProductVariant",
+//           kind: "OBJECT",
+//           fieldBaseTypes: {
+//             availableForSale: "Boolean",
+//             compareAtPrice: "MoneyV2",
+//             id: "ID",
+//             image: "Image",
+//             price: "MoneyV2",
+//             product: "Product",
+//             selectedOptions: "SelectedOption",
+//             sku: "String",
+//             title: "String",
+//             unitPrice: "MoneyV2",
+//             unitPriceMeasurement: "UnitPriceMeasurement",
+//             weight: "Float",
+//           },
+//           implementsNode: true,
+//         },
+//         hasNextPage: false,
+//         hasPreviousPage: false,
+//         variableValues: {
+//           handle: "קינוחי-כוסות-copy-4",
+//         },
+//       },
+//     ],
+//     type: {
+//       name: "Product",
+//       kind: "OBJECT",
+//       fieldBaseTypes: {
+//         availableForSale: "Boolean",
+//         createdAt: "DateTime",
+//         description: "String",
+//         descriptionHtml: "HTML",
+//         handle: "String",
+//         id: "ID",
+//         images: "ImageConnection",
+//         onlineStoreUrl: "URL",
+//         options: "ProductOption",
+//         productType: "String",
+//         publishedAt: "DateTime",
+//         title: "String",
+//         updatedAt: "DateTime",
+//         variants: "ProductVariantConnection",
+//         vendor: "String",
+//       },
+//       implementsNode: true,
+//     },
+//   },
+//   // More products...
+// ];
 const footerNavigation = {
   products: [
     { name: "Bags", href: "#" },
@@ -539,10 +541,11 @@ function ProductPage() {
 
   //   const { product, products, isFavorite, setIsFavorite, loading } =
   //     useProduct(handle);
-  const { product, loading } = useProduct(handle);
-  const tostify = new Toast();
+  const { product, loadingProduct } = useProduct(handle);
+  // TODO: add loading setup
+  const { products, error, loading } = relatedProducts(handle);
 
-  console.log(product);
+  const tostify = new Toast();
 
   const handleAddCart = async (variantId, quantity) => {
     setLoadingIndex(false);
@@ -589,11 +592,9 @@ function ProductPage() {
 
   return (
     <>
-      {loading ? (
-        <h1>loading</h1>
+      {loadingProduct ? (
+        <Spinner />
       ) : (
-        // FIXME: fix the small sizes screen
-
         <main className="mx-auto max-w-7xl sm:px-6 sm:pt-16 lg:px-8  pt-32 sm:pt-32">
           <div className="mx-auto max-w-2xl lg:max-w-none">
             {/* Product */}
@@ -676,10 +677,6 @@ function ProductPage() {
                 <div className="mt-6">
                   <h3 className="sr-only">Description</h3>
 
-                  {/* <div
-                    dangerouslySetInnerHTML={{ __html: product.description }}
-                    className="space-y-6 text-base text-gray-700"
-                  /> */}
                   {/* Product Description */}
                   <p
                     className="text-sm text-gray-500"
@@ -691,12 +688,6 @@ function ProductPage() {
 
                 <form className="mt-6">
                   <div className="mt-10 flex">
-                    {/* <button
-                      type="submit"
-                      className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
-                    >
-                      Add to bag
-                    </button> */}
                     {!product.availableForSale ? (
                       <button
                         className=" cursor-not-allowed flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent px-8 py-3 text-base font-medium text-indigo-600 border-indigo-600  focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full "
@@ -711,7 +702,6 @@ function ProductPage() {
                         className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full "
                       >
                         {!loadingIndex ? (
-                          // <div className="w-5 h-5 border-4 border-white border-t-transparent border-solid rounded-full animate-spin"></div>
                           <div className="flex gap-2 animate-fade-left animate-delay-300">
                             נוסף לסל
                             <svg
@@ -821,10 +811,13 @@ function ProductPage() {
             >
               <h2
                 id="related-heading"
-                className="text-xl font-bold text-gray-900"
+                className="text-xl font-bold text-gray-900 text-center"
+                dir="rtl"
               >
-                Customers also bought
+                מוצרים נוספים{" "}
               </h2>
+
+              {/* products, error, loading */}
 
               {/* <div className="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"> */}
               {/* {relatedProducts.map((product) => (
@@ -866,7 +859,7 @@ function ProductPage() {
                     </div>
                   </div>
                 ))} */}
-              <ScroolingImages products={relatedProducts} />
+              <ScroolingImages products={products} />
               {/* </div> */}
             </section>
           </div>
