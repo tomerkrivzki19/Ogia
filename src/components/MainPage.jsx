@@ -28,6 +28,8 @@ import { InstagramEmbed, TikTokEmbed } from "react-social-media-embed";
 import trendingProducts from "../hooks/trendingProducts";
 import ScroolingImages from "./subComponents/ScroolingImages";
 import TiktokFrame from "./subComponents/TiktokFrame";
+import Spinner from "./subComponents/Spinner";
+import ServerError from "./subComponents/ServerError";
 
 const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
 const navigation = {
@@ -360,11 +362,16 @@ function MainPage() {
               </a>
             </div>
 
-            {/* FIXME: trednig products */}
-
-            <div className="scrooling images ">
-              <ScroolingImages products={products} />
-            </div>
+            {/* catch err for products  */}
+            {loading ? (
+              <Spinner />
+            ) : error ? (
+              <ServerError />
+            ) : (
+              <div className="scrooling images ">
+                <ScroolingImages products={products} />
+              </div>
+            )}
 
             <div className="mt-12 px-4 sm:hidden">
               <a
@@ -483,7 +490,6 @@ function MainPage() {
           </section>
         </div>
       </main>
-
       {/* footer  TODO: */}
       <footer aria-labelledby="footer-heading" className="bg-white">
         <h2 id="footer-heading" className="sr-only">

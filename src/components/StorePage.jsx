@@ -31,6 +31,8 @@ import { ChevronDownIcon, PlusIcon } from "@heroicons/react/20/solid";
 import useProducts from "../hooks/useProducts";
 import { useParams, useSearchParams } from "react-router-dom";
 import StotrePageTopics from "./subComponents/StotrePageTopics";
+import Spinner from "./subComponents/Spinner";
+import ServerError from "./subComponents/ServerError";
 
 const navigation = {
   categories: [
@@ -592,59 +594,70 @@ function StorePage() {
               Products
             </h2>
 
-            <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:gap-x-8 xl:grid-cols-3">
-              {products.map((product) => (
-                <div
-                  key={product.id}
-                  className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
-                >
-                  {/* Product Image */}
-                  <img
-                    alt={product.images[0]?.altText || product.title} // Use alt text from the data or fallback to title
-                    src={product.images[0]?.src} // Get the first image's source
-                    className="aspect-[3/4] bg-gray-200 object-cover group-hover:opacity-75 sm:h-96"
-                  />
+            <div>
+              {loading ? (
+                <Spinner />
+              ) : error ? (
+                <ServerError />
+              ) : (
+                <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:gap-x-8 xl:grid-cols-3">
+                  {products.map((product) => (
+                    <div
+                      key={product.id}
+                      className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
+                    >
+                      {/* Product Image */}
+                      <img
+                        alt={product.images[0]?.altText || product.title} // Use alt text from the data or fallback to title
+                        src={product.images[0]?.src} // Get the first image's source
+                        className="aspect-[3/4] bg-gray-200 object-cover group-hover:opacity-75 sm:h-96"
+                      />
 
-                  <div className="flex flex-1 flex-col space-y-2 p-4">
-                    {/* Product Title */}
-                    <h3 className="text-sm font-medium text-gray-900">
-                      {/* FIXME: link to the product id  */}
-                      <a href={`/product/${product.handle}`}>
-                        {" "}
-                        {/* Use the product handle for linking */}
-                        <span aria-hidden="true" className="absolute inset-0" />
-                        {product.title} {/* Display product title */}
-                      </a>
-                    </h3>
+                      <div className="flex flex-1 flex-col space-y-2 p-4">
+                        {/* Product Title */}
+                        <h3 className="text-sm font-medium text-gray-900">
+                          {/* FIXME: link to the product id  */}
+                          <a href={`/product/${product.handle}`}>
+                            {" "}
+                            {/* Use the product handle for linking */}
+                            <span
+                              aria-hidden="true"
+                              className="absolute inset-0"
+                            />
+                            {product.title} {/* Display product title */}
+                          </a>
+                        </h3>
 
-                    {/* Product Description */}
-                    {/* <p
+                        {/* Product Description */}
+                        {/* <p
                       className="text-sm text-gray-500"
                       dangerouslySetInnerHTML={{
                         __html: product.descriptionHtml,
                       }}
                     /> */}
-                    {/* Product Description */}
-                    <p
-                      className="text-sm text-gray-500"
-                      dangerouslySetInnerHTML={{
-                        __html: product.descriptionHtml.split("\n")[0],
-                      }}
-                    />
+                        {/* Product Description */}
+                        <p
+                          className="text-sm text-gray-500"
+                          dangerouslySetInnerHTML={{
+                            __html: product.descriptionHtml.split("\n")[0],
+                          }}
+                        />
 
-                    <div className="flex flex-1 flex-col justify-end">
-                      {/* Product Price */}
-                      <p className="text-base font-medium text-gray-900">
-                        ₪
-                        {parseFloat(product.variants[0]?.price?.amount).toFixed(
-                          2
-                        )}{" "}
-                        {/* Format price */}
-                      </p>
+                        <div className="flex flex-1 flex-col justify-end">
+                          {/* Product Price */}
+                          <p className="text-base font-medium text-gray-900">
+                            ₪
+                            {parseFloat(
+                              product.variants[0]?.price?.amount
+                            ).toFixed(2)}{" "}
+                            {/* Format price */}
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
-              ))}
+              )}
             </div>
           </section>
         </div>
