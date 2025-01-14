@@ -40,6 +40,23 @@ export const fetchProducts = async (
   }
 };
 
+// fetch products names+id+handele for serch bar
+export const fetchProductsBarSerch = async () => {
+  try {
+    const products = await client.product.fetchAll();
+
+    // Filters products output { id, handle, title }
+    const filterProduct = ({ id, handle, title }) => ({ id, handle, title });
+
+    const filteredProducts = products.map(filterProduct);
+
+    return filteredProducts;
+  } catch (error) {
+    console.error("Error fetching products", error);
+    throw error;
+  }
+};
+
 // fetch product by ID -- not in use yet!! FIXME:
 export const fetchProductById = async (id) => {
   try {

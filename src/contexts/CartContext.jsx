@@ -18,8 +18,6 @@ export const CartProvider = ({ children }) => {
   const [addProductCartLoading, setAddProductCartLoading] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  console.log("cart", cart);
-
   // Fetch cart data and set state
   const fetchCart = async () => {
     try {

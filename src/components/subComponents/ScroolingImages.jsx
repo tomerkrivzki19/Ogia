@@ -7,8 +7,6 @@ import "swiper/css/navigation";
 import { Navigation, Autoplay } from "swiper/modules";
 
 function ScroolingImages({ products }) {
-  console.log(products);
-
   return (
     <>
       <div className="relative mt-8  ">

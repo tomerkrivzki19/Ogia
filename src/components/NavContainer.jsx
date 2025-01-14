@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { memo, useCallback, useContext } from "react";
 import { Fragment, useState } from "react";
 import {
   Dialog,
@@ -28,6 +28,8 @@ import { cartContext } from "../contexts/CartContext";
 import ShoppingCart from "./subComponents/ShopingCart";
 import Toast from "../utils/tostify";
 import { redirectToCheckout } from "../services/shopify";
+import CommandPalettes from "./subComponents/CommandPalettes";
+import useProducts from "../hooks/useProducts";
 
 const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
 const navigation = {
@@ -116,10 +118,22 @@ const offers = [
 function NavContainer() {
   const { cart, subTotal, handleRemoveItem, isCartOpen, setIsCartOpen } =
     useContext(cartContext);
-  const tostify = new Toast();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Cart quantity
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openSearchBar, setOpenSearchBar] = useState(false);
+  const tostify = new Toast();
+
+  // Toggle the search bar
+  const toggleSearchBar = useCallback(() => {
+    setOpenSearchBar((prev) => !prev);
+  }, []);
+
+  // Close the search bar (passed to child)
+  const closeSearchBar = useCallback(() => {
+    setOpenSearchBar(false);
+  }, []);
+
+  // Cart quantity TODO: add toFix propartie
   const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   const checkoutLink = () => {
@@ -555,8 +569,9 @@ function NavContainer() {
                     </button>
 
                     {/* Search */}
-                    <a
-                      href="#"
+                    <button
+                      onClick={toggleSearchBar}
+                      // href="#"
                       className="ml-2 p-2 text-gray-400 hover:text-gray-500"
                     >
                       <span className="sr-only">Search</span>
@@ -564,7 +579,7 @@ function NavContainer() {
                         aria-hidden="true"
                         className="size-6"
                       />
-                    </a>
+                    </button>
                   </div>
 
                   {/* Logo (lg-) */}
@@ -577,8 +592,10 @@ function NavContainer() {
                     <div className="flex items-center lg:ml-8">
                       <div className="flex space-x-8">
                         <div className="hidden lg:flex">
-                          <a
-                            href="#"
+                          <button
+                            onClick={toggleSearchBar}
+                            // onClick={() => openSearchBar()}
+                            // href="#"
                             className="-m-2 p-2 text-gray-400 hover:text-gray-500"
                           >
                             <span className="sr-only">Search</span>
@@ -586,7 +603,15 @@ function NavContainer() {
                               aria-hidden="true"
                               className="size-6"
                             />
-                          </a>
+                          </button>
+                          {/* need to add to types of props - TODO:
+                          -the first one is all the data names
+                          -the seconed is the open state that will be controlled by the click on the serch-bar
+                          */}
+                          <CommandPalettes
+                            openSearchBar={openSearchBar}
+                            onClose={closeSearchBar}
+                          />
                         </div>
 
                         <div className="flex">
@@ -626,4 +651,4 @@ function NavContainer() {
   );
 }
 
-export default NavContainer;
+export default memo(NavContainer);
