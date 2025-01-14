@@ -21,6 +21,7 @@ function ScroolingImages({ products }) {
           }}
           breakpoints={{
             640: { slidesPerView: 1 }, // 1 product on small screens (<= 640px)
+            640: { slidesPerView: 3 }, // 2 products on medium screens (<= 768px)
             1024: { slidesPerView: 4 }, // 4 products on larger screens (>= 1024px)
           }}
         >
@@ -32,7 +33,7 @@ function ScroolingImages({ products }) {
                   <img
                     alt={product.images[0]?.altText || product.title}
                     src={product.images[0]?.src || ""}
-                    className="aspect-square w-full rounded-lg object-cover group-hover:opacity-75 sm:aspect-[2/3]"
+                    className="aspect-square w-full  rounded-lg object-cover group-hover:opacity-75 sm:aspect-[2/3] "
                   />
 
                   {/* Product Details */}
@@ -55,7 +56,7 @@ function ScroolingImages({ products }) {
                 </div>
 
                 {/* Available Colors */}
-                {product.options[0]?.name === "Color" && (
+                {/* {product.options[0]?.name === "Color" && (
                   <h4 className="sr-only">Available colors</h4>
                 )}
                 <ul
@@ -72,7 +73,7 @@ function ScroolingImages({ products }) {
                         <span className="sr-only">{color.value}</span>
                       </li>
                     ))}
-                </ul>
+                </ul> */}
               </div>
             </SwiperSlide>
           ))}

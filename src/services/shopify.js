@@ -123,20 +123,12 @@ export const fetchLatestProducts = async () => {
 // fetch related Products
 export const fetchRelatedProducts = async (handle) => {
   try {
-    console.log("handle", handle);
-
     // Fetch all products
     const products = await client.product.fetchAll();
-    console.log("products", products.length);
 
-    // Sort products by the published date in descending order (newest first)
-    // const sortedProducts = products.sort(
-    //   (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt)
-    // );
     const sortedProducts = products.filter((product) => {
       return product.handle !== handle;
     });
-    console.log("sortedProducts", sortedProducts);
 
     // Return the last 6 published products
     return sortedProducts.slice(0, 6);
