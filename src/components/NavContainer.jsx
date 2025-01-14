@@ -373,7 +373,11 @@ function NavContainer() {
                   <div className="hidden lg:flex lg:items-center">
                     <a href="/">
                       <span className="sr-only">Your Company</span>
-                      <img alt="" src={logoImage} className="h-16 w-auto" />
+                      <img
+                        alt="לוגו של החנות עוגייה"
+                        src={logoImage}
+                        className="h-16 w-auto"
+                      />
                     </a>
                   </div>
 
