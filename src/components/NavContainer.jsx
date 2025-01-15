@@ -196,19 +196,32 @@ function NavContainer() {
                     key={category.name}
                     className="space-y-12 px-4 pb-6 pt-10"
                   >
-                    <div className="grid grid-cols-1 items-start gap-x-6 gap-y-10">
-                      <div className="grid grid-cols-1 gap-x-6 gap-y-10">
+                    <div
+                      className="grid grid-cols-1 items-start gap-x-6 gap-y-10 "
+                      dir="rtl"
+                    >
+                      <div className="grid grid-cols-1 gap-x-6 gap-y-10 ">
+                        <div>
+                          <a
+                            id="mobile-brand-heading"
+                            href="/store"
+                            // className="font-medium text-gray-900"
+                          >
+                            מעבר לכל המוצרים
+                            <span aria-hidden="true"> &rarr;</span>
+                          </a>
+                        </div>
                         <div>
                           <p
                             id={`mobile-IndividuaBakedGoodslDesserts-heading-${categoryIdx}`}
-                            className="font-medium text-gray-900"
+                            className="font-medium text-gray-900 "
                           >
                             מאפים
                           </p>
                           <ul
                             role="list"
                             aria-labelledby={`mobile-IndividuaBakedGoodslDesserts-heading-${categoryIdx}`}
-                            className="mt-6 space-y-6"
+                            className="mt-6 space-y-6 text-center"
                           >
                             {category.BakedGoods.map((item) => (
                               <li key={item.name} className="flex">
@@ -285,16 +298,6 @@ function NavContainer() {
                             ))}
                           </ul>
                         </div>
-
-                        <div>
-                          <a
-                            id="mobile-brand-heading"
-                            href="/store"
-                            // className="font-medium text-gray-900"
-                          >
-                            הכל
-                          </a>
-                        </div>
                       </div>
                     </div>
                   </TabPanel>
@@ -302,7 +305,10 @@ function NavContainer() {
               </TabPanels>
             </TabGroup>
 
-            <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+            <div
+              className="space-y-6 border-t border-gray-200 px-4 py-6"
+              dir="rtl"
+            >
               {navigation.pages.map((page) => (
                 <div key={page.name} className="flow-root">
                   <a
@@ -313,47 +319,6 @@ function NavContainer() {
                   </a>
                 </div>
               ))}
-            </div>
-
-            {/* <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-              <div className="flow-root">
-                <a
-                  href="#"
-                  className="-m-2 block p-2 font-medium text-gray-900"
-                >
-                  Create an account
-                </a>
-              </div>
-              <div className="flow-root">
-                <a
-                  href="#"
-                  className="-m-2 block p-2 font-medium text-gray-900"
-                >
-                  Sign in
-                </a>
-              </div>
-            </div> */}
-
-            <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-              {/* Currency selector */}
-              <form>
-                <div className="-ml-2 inline-grid grid-cols-1">
-                  {/* <select
-                    id="mobile-currency"
-                    name="currency"
-                    aria-label="Currency"
-                    className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-0.5 pl-2 pr-7 text-base font-medium text-gray-700 focus:outline focus:outline-2 group-hover:text-gray-800 sm:text-sm/6"
-                  >
-                    {currencies.map((currency) => (
-                      <option key={currency}>{currency}</option>
-                    ))}
-                  </select> */}
-                  <ChevronDownIcon
-                    aria-hidden="true"
-                    className="pointer-events-none col-start-1 row-start-1 mr-1 size-5 self-center justify-self-end fill-gray-500"
-                  />
-                </div>
-              </form>
             </div>
           </DialogPanel>
         </div>
