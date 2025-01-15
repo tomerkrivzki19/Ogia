@@ -2,8 +2,8 @@ import React from "react";
 
 function takanon() {
   return (
-    <article id="post-20041" className=" p-32 text-right">
-      <div className="text-right p-10">
+    <article id="post-20041" className="p-5 py-32">
+      <div className="text-center sm:text-right">
         <div
           data-elementor-type="wp-page"
           data-elementor-id="20041"

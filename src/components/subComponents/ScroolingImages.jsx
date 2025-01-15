@@ -39,7 +39,7 @@ function ScroolingImages({ products }) {
                   {/* Product Details */}
                   <div className="mt-6">
                     <p className="text-sm text-gray-500">
-                      {product.vendor || "No vendor available"}
+                      {product.productType || "No productType available"}
                     </p>
                     <h3 className="mt-1 font-semibold text-gray-900">
                       <a href={`/product/${product.handle}`}>
@@ -54,26 +54,6 @@ function ScroolingImages({ products }) {
                     </p>
                   </div>
                 </div>
-
-                {/* Available Colors */}
-                {/* {product.options[0]?.name === "Color" && (
-                  <h4 className="sr-only">Available colors</h4>
-                )}
-                <ul
-                  role="list"
-                  className="mt-auto flex items-center justify-center space-x-3 pt-6"
-                >
-                  {product.options[0]?.name === "Color" &&
-                    product.options[0]?.values.map((color) => (
-                      <li
-                        key={color.value}
-                        className="size-4 rounded-full border border-black/10"
-                        style={{ backgroundColor: color.value }}
-                      >
-                        <span className="sr-only">{color.value}</span>
-                      </li>
-                    ))}
-                </ul> */}
               </div>
             </SwiperSlide>
           ))}

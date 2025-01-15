@@ -725,12 +725,8 @@ function ProductPage() {
                         )}
                       </button>
                     )}
-                    <button
-                      type="button"
-                      className="ml-4 flex items-center justify-center rounded-md px-3 py-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
-                      // onClick={() => toggleFavorite()} TODO: favorites part
-                    >
-                      {/* {isFavorite ? (
+                    {/* heart icone - disabled for now */}
+                    {/* {isFavorite ? (
                         <SolidHeartIcon
                           aria-hidden="true"
                           className="h-6 w-6 flex-shrink-0 text-red-500  animate-jump-in animate-once  animate-delay-500"
@@ -741,12 +737,17 @@ function ProductPage() {
                           className="h-6 w-6 flex-shrink-0 "
                         />
                       )} */}
+                    {/* <button
+                      type="button"
+                      className="ml-4 flex items-center justify-center rounded-md px-3 py-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
+                      // onClick={() => toggleFavorite()} TODO: favorites part
+                    >
                       <HeartIcon
                         aria-hidden="true"
                         className="h-6 w-6 flex-shrink-0 "
                       />
                       <span className="sr-only">Add to favorites</span>
-                    </button>
+                    </button> */}
                   </div>
                 </form>
 
