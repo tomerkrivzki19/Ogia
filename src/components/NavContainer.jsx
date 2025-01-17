@@ -564,12 +564,13 @@ function NavContainer() {
                   </div>
 
                   {/* Logo (lg-) */}
+                  {/* TODO:FIXME: fix the logo on iphone sm screens  */}
                   <a href="/" className="lg:hidden">
                     <span className="sr-only">Your Company</span>
                     <img
                       alt="לוגו של החנות עוגייה"
                       src={logoImage}
-                      className="h-16 w-auto "
+                      className="h-16 w-auto"
                     />
                   </a>
 

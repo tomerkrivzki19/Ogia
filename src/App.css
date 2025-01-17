@@ -1,8 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body {
+/* 
+meta[name="viewport"] {
+  content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"; 
+  Disable zoom and ensure proper scaling
+} */
+body,
+html {
   overflow-x: hidden;
 }
 
