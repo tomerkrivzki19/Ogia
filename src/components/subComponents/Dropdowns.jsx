@@ -4,12 +4,12 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 function Dropdowns({ title, category }) {
   return (
-    // <Menu as="div" className="relative inline-block text-left">
+    // <Menu as="div" classNameName="relative inline-block text-left">
     //   <div>
     //     <MenuButton
-    //       // className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+    //       // classNameName="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
 
-    //       className="font-medium text-gray-900 "
+    //       classNameName="font-medium text-gray-900 "
     //     >
     //       Options
     //       <ChevronDownIcon
@@ -37,17 +37,17 @@ function Dropdowns({ title, category }) {
     //   </MenuItems>
     // </Menu>
 
-    <li class="group max-lg:border-b max-lg:px-3 max-lg:py-3 relative flex">
+    <li className="group max-lg:border-b max-lg:px-3 max-lg:py-3 relative flex">
       <a
         href="javascript:void(0)"
-        class="hover:text-[#007bff] hover:fill-[#007bff] text-gray-800 text-[15px] flex items-center"
+        className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-800 text-[15px] flex items-center"
       >
         {title}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16px"
           height="16px"
-          class="ml-1 inline-block"
+          className="ml-1 inline-block"
           viewBox="0 0 24 24"
         >
           <path
@@ -57,12 +57,12 @@ function Dropdowns({ title, category }) {
           />
         </svg>
       </a>
-      <ul class="absolute top-5 max-lg:top-8 left-0 z-50 block space-y-2 shadow-lg bg-white max-h-0 overflow-hidden min-w-[230px] group-hover:opacity-100 group-hover:max-h-[700px] px-6 group-hover:pb-4 group-hover:pt-6 transition-all duration-[400ms]">
+      <ul className="absolute top-5 max-lg:top-8 left-0 z-50 block space-y-2 shadow-lg bg-white max-h-0 overflow-hidden min-w-[230px] group-hover:opacity-100 group-hover:max-h-[700px] px-6 group-hover:pb-4 group-hover:pt-6 transition-all duration-[400ms]">
         {category.map((item) => (
-          <li key={item.name} class="border-b py-3">
+          <li key={item.name} className="border-b py-3">
             <a
               href={item.href}
-              class="hover:text-[#007bff] hover:fill-[#007bff] text-gray-800 text-[15px] flex items-center"
+              className="hover:text-[#007bff] hover:fill-[#007bff] text-gray-800 text-[15px] flex items-center"
             >
               {/* Furniture Store */}
 
