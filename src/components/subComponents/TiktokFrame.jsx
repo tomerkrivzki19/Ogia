@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { InstagramEmbed, TikTokEmbed } from "react-social-media-embed";
 import { Autoplay } from "swiper/modules"; // Updated import for Autoplay
 
@@ -56,4 +56,4 @@ function TiktokFrame() {
   );
 }
 
-export default TiktokFrame;
+export default memo(TiktokFrame);

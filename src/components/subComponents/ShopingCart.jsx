@@ -32,7 +32,7 @@ export default function ShoppingCart({
   return (
     <>
       {/* Shopping Cart Icon */}
-      <div className="flow-root">
+      <div className="flow-root ">
         <button
           onClick={() => setOpen(true)} // Open Dialog on click
           className="group -m-2 flex items-center p-2"
@@ -60,32 +60,31 @@ export default function ShoppingCart({
         />
 
         <div className="fixed inset-0 overflow-hidden" dir="rtl">
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+          <div className="absolute inset-0 overflow-hidden ">
+            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10 ">
               {/* Sliding panel */}
               <DialogPanel
                 transition
                 className="pointer-events-auto w-screen max-w-md transform transition duration-500 ease-in-out data-[closed]:translate-x-full sm:duration-700"
               >
-                <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
-                  <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                    <div className="flex items-start justify-between">
-                      <DialogTitle className="text-lg font-medium text-gray-900">
+                <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl ">
+                  <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6 ">
+                    <div className="flex items-start justify-between ">
+                      <DialogTitle className="text-lg font-medium text-gray-900 ">
                         עגלת קניות
                       </DialogTitle>
-                      <div className="ml-3 flex h-7 items-center">
+                      <div className="ml-3 flex h-7 items-center ">
                         <button
                           type="button"
                           onClick={() => setOpen(false)}
-                          className="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
+                          className="relative -m-2 p-2 text-gray-400 hover:text-gray-500 "
                         >
                           <span className="sr-only">Close panel</span>
                           <XMarkIcon aria-hidden="true" className="size-6" />
                         </button>
                       </div>
                     </div>
-
-                    <div className="mt-8">
+                    <div className="mt-8 ">
                       <div className="flow-root">
                         <ul
                           role="list"
@@ -98,26 +97,28 @@ export default function ShoppingCart({
                               {products.map((product) => (
                                 <li key={product.id} className="flex py-6">
                                   <div className="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                    <img
-                                      src={product.variant.image.src}
-                                      alt={product.variant.imageAlt}
-                                      className="size-full object-cover"
-                                    />
+                                    <a
+                                      href={`/product/${product.variant.product.handle}`}
+                                    >
+                                      <img
+                                        src={product.variant.image.src}
+                                        alt={product.variant.imageAlt}
+                                        className="size-full object-cover"
+                                      />
+                                    </a>{" "}
                                   </div>
                                   <div className="ml-4 flex flex-1 flex-col">
                                     <div>
                                       <div className="flex justify-between text-base font-medium text-gray-900 pr-2">
                                         <h3>
                                           <a
-                                            //   href={product.href}
-                                            // FIXME: fix the path with sort of a fuction or find the handeler inside the object
-                                            href={`/product/:handle/${product.handle}`}
+                                            href={`/product/${product.variant.product.handle}`}
                                           >
                                             {product.title}
                                           </a>
                                         </h3>
                                         <p className="ml-4" dir="ltr">
-                                          ₪{product.variant.price.amount}
+                                          {`₪${product.variant.price.amount}`}
                                         </p>
                                       </div>
                                       {/* <p className="mt-1 text-sm text-gray-500">
@@ -152,7 +153,7 @@ export default function ShoppingCart({
                   <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                     <div className="flex justify-between text-base font-medium text-gray-900">
                       <p>סכום ביניים </p>
-                      <p>₪{subTotal.toLocaleString()}</p>
+                      <p>{` ₪${subTotal.toLocaleString()}`}</p>
                     </div>
                     <p className="mt-0.5 text-sm text-gray-500">
                       משלוח ומיסים מחושבים בקופה.{" "}

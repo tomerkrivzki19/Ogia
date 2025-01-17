@@ -646,10 +646,10 @@ function StorePage() {
                         <div className="flex flex-1 flex-col justify-end">
                           {/* Product Price */}
                           <p className="text-base font-medium text-gray-900">
-                            ₪
-                            {parseFloat(
-                              product.variants[0]?.price?.amount
-                            ).toFixed(2)}{" "}
+                            {`
+                           ₪${parseFloat(
+                             product.variants[0]?.price?.amount
+                           ).toFixed(2)}`}
                             {/* Format price */}
                           </p>
                         </div>

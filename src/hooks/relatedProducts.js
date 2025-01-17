@@ -7,8 +7,6 @@ import { fetchRelatedProducts } from "../services/shopify";
 // seconed need to recreate an currosele for that current produts -4 products each time
 
 const relatedProducts = (handle) => {
-  console.log(handle);
-
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
