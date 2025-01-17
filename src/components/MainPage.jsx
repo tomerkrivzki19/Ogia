@@ -312,7 +312,9 @@ function MainPage() {
             <div className="relative  lg:bg-transparent">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:grid lg:grid-cols-2 lg:px-8">
                 <div
-                  className="mx-auto max-w-2xl sm:py-24 py-36 lg:max-w-none lg:py-64"
+                  className="mx-auto max-w-2xl sm:py-24 pt-36 pb-10 lg:max-w-none lg:py-64"
+                  // THE OLD ONE:
+                  // className="mx-auto max-w-2xl sm:py-24 py-36 lg:max-w-none lg:py-64"
                   dir="rtl"
                 >
                   <div className="lg:pr-16">
@@ -326,7 +328,7 @@ function MainPage() {
                     <div className="mt-6">
                       <a
                         href="/store"
-                        className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 font-medium text-white hover:bg-indigo-700"
+                        className=" bg-[#F2EADF] hover:bg-[#E5D6C4] text-black inline-block rounded-md border border-transparent  px-8 py-3 font-medium "
                       >
                         חנות המתוקים שלנו
                       </a>
@@ -335,9 +337,8 @@ function MainPage() {
                 </div>
               </div>
             </div>
-            <div className="h-56 w-full sm:h-64 lg:absolute lg:right-0 lg:top-0 lg:h-full lg:w-1/2">
-              {/* <div className="h-[400px] w-full sm:h-[500px] lg:absolute lg:right-0 lg:top-0 lg:h-full lg:w-1/2"> */}
-
+            {/* <div className="h-56 w-full sm:h-64 lg:absolute lg:right-0 lg:top-0 lg:h-full lg:w-1/2"> */}
+            <div className="h-[400px] w-full sm:h-[500px] lg:absolute lg:right-0 lg:top-0 lg:h-full lg:w-1/2">
               <img
                 alt="תמונה של קינוחי כוסות"
                 src="https://9bqcdp1hk5hf6dhw-89317572974.shopifypreview.com/cdn/shop/files/WhatsAppImage2025-01-06at01.26.07_9d45e722.jpg?v=1736119599&width=823"

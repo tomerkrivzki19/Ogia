@@ -23,7 +23,8 @@ import {
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import NavCommercialHeader from "./NavCommercialHeader";
-import logoImage from "../../public/WhatsAppImage2025-01-05at21.36.22_e3eca4b3.jpg";
+// import logoImage from "../../public/WhatsAppImage2025-01-05at21.36.22_e3eca4b3.jpg"; FIXME: make the logo image bigger
+import logoImage from "../../public/WhatsAppImage2025-01-05at21.36.22_e3eca4b31.jpg";
 import { cartContext } from "../contexts/CartContext";
 import ShoppingCart from "./subComponents/ShopingCart";
 import Toast from "../utils/tostify";
@@ -335,13 +336,13 @@ function NavContainer() {
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                   {/* Logo (lg+) */}
-                  <div className="hidden lg:flex lg:items-center">
+                  <div className="hidden lg:flex lg:items-center ">
                     <a href="/">
                       <span className="sr-only">Your Company</span>
                       <img
                         alt="לוגו של החנות עוגייה"
                         src={logoImage}
-                        className="h-16 w-auto"
+                        className="h-16 w-auto "
                       />
                     </a>
                   </div>
@@ -554,7 +555,11 @@ function NavContainer() {
                   {/* Logo (lg-) */}
                   <a href="/" className="lg:hidden">
                     <span className="sr-only">Your Company</span>
-                    <img alt="" src={logoImage} className="h-16 w-auto" />
+                    <img
+                      alt="לוגו של החנות עוגייה"
+                      src={logoImage}
+                      className="h-16 w-auto "
+                    />
                   </a>
 
                   <div className="flex flex-1 items-center justify-end">
