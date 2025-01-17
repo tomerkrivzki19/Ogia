@@ -31,6 +31,7 @@ import Toast from "../utils/tostify";
 import { redirectToCheckout } from "../services/shopify";
 import CommandPalettes from "./subComponents/CommandPalettes";
 import useProducts from "../hooks/useProducts";
+import Dropdowns from "./subComponents/Dropdowns";
 
 const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
 const navigation = {
@@ -203,16 +204,13 @@ function NavContainer() {
                     >
                       <div className="grid grid-cols-1 gap-x-6 gap-y-10 ">
                         <div>
-                          <a
-                            id="mobile-brand-heading"
-                            href="/store"
-                            // className="font-medium text-gray-900"
-                          >
+                          <a id="mobile-brand-heading" href="/store">
                             מעבר לכל המוצרים
                             <span aria-hidden="true"> &rarr;</span>
                           </a>
                         </div>
-                        <div>
+                        {/* TESTING */}
+                        {/* <div>
                           <p
                             id={`mobile-IndividuaBakedGoodslDesserts-heading-${categoryIdx}`}
                             className="font-medium text-gray-900 "
@@ -232,8 +230,13 @@ function NavContainer() {
                               </li>
                             ))}
                           </ul>
-                        </div>
-                        <div>
+                        </div> */}
+                        {/*  TODO:*/}
+                        <Dropdowns
+                          title={"מאפים"}
+                          category={category.BakedGoods}
+                        />
+                        {/* <div>
                           <p
                             id="mobile-GiftBoxes-heading"
                             className="font-medium text-gray-900"
@@ -253,10 +256,14 @@ function NavContainer() {
                               </li>
                             ))}
                           </ul>
-                        </div>
+                        </div> */}
+                        <Dropdowns
+                          title={"מארזים"}
+                          category={category.GiftBoxes}
+                        />
                       </div>
                       <div className="grid grid-cols-1 gap-x-6 gap-y-10">
-                        <div>
+                        {/* <div>
                           <p
                             id="mobile-IndividualDesserts-heading"
                             className="font-medium text-gray-900"
@@ -276,9 +283,12 @@ function NavContainer() {
                               </li>
                             ))}
                           </ul>
-                        </div>
-
-                        <div>
+                        </div> */}
+                        <Dropdowns
+                          title={"קינוחים אישיים"}
+                          category={category.IndividualDesserts}
+                        />
+                        {/* <div>
                           <p
                             id="mobile-brand-heading"
                             className="font-medium text-gray-900"
@@ -298,7 +308,11 @@ function NavContainer() {
                               </li>
                             ))}
                           </ul>
-                        </div>
+                        </div> */}
+                        <Dropdowns
+                          title={"גלידות"}
+                          category={category.IceCreams}
+                        />
                       </div>
                     </div>
                   </TabPanel>
@@ -306,10 +320,7 @@ function NavContainer() {
               </TabPanels>
             </TabGroup>
 
-            <div
-              className="space-y-6 border-t border-gray-200 px-4 py-6"
-              dir="rtl"
-            >
+            <div className="space-y-6 px-4 py-6" dir="rtl">
               {navigation.pages.map((page) => (
                 <div key={page.name} className="flow-root">
                   <a

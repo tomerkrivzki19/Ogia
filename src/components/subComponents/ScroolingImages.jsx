@@ -49,7 +49,7 @@ function ScroolingImages({ products }) {
                     </h3>
                     <p className="mt-1 text-gray-900">
                       {product.variants[0]?.price?.amount
-                        ? `${product.variants[0].price.amount} ${product.variants[0].price.currencyCode}`
+                        ? `${parseFloat(product.variants[0].price.amount)}  ₪`
                         : "Price not available"}
                     </p>
                   </div>

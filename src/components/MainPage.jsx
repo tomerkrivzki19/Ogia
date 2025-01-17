@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Fragment, useState } from "react";
 import {
   Dialog,
@@ -506,4 +506,4 @@ function MainPage() {
   );
 }
 
-export default MainPage;
+export default memo(MainPage);
