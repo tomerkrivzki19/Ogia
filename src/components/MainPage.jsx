@@ -485,6 +485,38 @@ function MainPage() {
               >
                 קצת עליי
               </h2>
+              {/* profilo */}
+              {/* <div className="bg-white "> */}
+              <div className="mx-auto max-w-7xl  lg:px-8">
+                <ul
+                  role="list"
+                  className="mx-auto mt-5 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none"
+                >
+                  <li className="flex flex-col gap-6 xl:flex-row">
+                    <img
+                      alt=""
+                      // src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+                      src="https://instagram.ftlv6-1.fna.fbcdn.net/v/t39.30808-6/470189402_18477034180052202_6333195991955190476_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE4MDAuc2RyLmYzMDgwOC5kZWZhdWx0X2ltYWdlIn0&_nc_ht=instagram.ftlv6-1.fna.fbcdn.net&_nc_cat=106&_nc_ohc=KfOXnprBZysQ7kNvgHPvgpq&_nc_gid=5eae515b6b8644f1b3eb66d96b270b92&edm=AP4sbd4AAAAA&ccb=7-5&ig_cache_key=MzIzMzg3OTQ2MzA5MzYwODYzNw%3D%3D.3-ccb7-5&oh=00_AYD9hLDVTPeQXJr-_4Ucb0nS-l4mI6cMgf9TbzxRdxI_9Q&oe=679150AC&_nc_sid=7a9f4b"
+                      className="aspect-[4/5] w-52 flex-none rounded-2xl object-cover"
+                    />
+                    <div className="flex-auto">
+                      <h3 className="text-lg/8 font-semibold tracking-tight text-gray-900">
+                        טטיאנה צ'רוב,
+                      </h3>
+                      <p className="text-base/7 text-gray-600">
+                        קונדיטורית מומחית{" "}
+                      </p>
+                      <p className="mt-6 text-base/7 text-gray-600">
+                        בעלת תעודת הסמכה בקונדיטוריה ממוסד יוקרתי בפריז, צרפת.
+                        עברה הכשרות מקצועיות במספר מוסדות בינלאומיים, בהם
+                        איטליה, ספרד ובלגיה. מתמחה בפיתוח מתכונים חדשניים ושיטות
+                        עבודה מתקדמות בתחום האפייה והקונדיטוריה.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              {/* </div> */}
 
               <div className="mt-16 space-y-16 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
                 {aboutMe.map((testimonial) => (
@@ -506,7 +538,7 @@ function MainPage() {
                         {testimonial.quote}
                       </p>
                       <cite className="mt-4 block font-semibold not-italic text-gray-900">
-                        {testimonial.attribution}
+                        {/* {testimonial.attribution} */}
                       </cite>
                     </div>
                   </blockquote>

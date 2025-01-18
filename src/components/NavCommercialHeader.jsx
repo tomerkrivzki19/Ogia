@@ -13,7 +13,7 @@ function NavCommercialHeader() {
         {/* Right-aligned button */}
         <div className="flex items-center justify-end">
           <a
-            href="tel:555-666-7777"
+            href="tel:+972 54-496-2675"
             className="rounded-full bg-[#8F8479] px-2.5 py-1 text-xs font-semibold text-white shadow-sm hover:bg-[#776F66] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#776F66]"
 
             // className="rounded-full bg-green-400 px-2.5 py-1 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
