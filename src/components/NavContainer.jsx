@@ -162,10 +162,11 @@ function NavContainer() {
           className="fixed inset-0 bg-black/25 transition-opacity duration-300 ease-linear data-[closed]:opacity-0"
         />
 
-        <div className="fixed inset-0 z-40 flex">
+        <div className="fixed inset-0 z-40 flex" dir="rtl">
           <DialogPanel
             transition
-            className="relative flex w-full max-w-xs transform flex-col overflow-y-auto bg-white pb-12 shadow-xl transition duration-300 ease-in-out data-[closed]:-translate-x-full"
+            // className="relative flex w-full max-w-xs transform flex-col overflow-y-auto bg-white pb-12 shadow-xl transition duration-300 ease-in-out data-[closed]:-translate-x-full"
+            className="relative flex w-full max-w-xs transform flex-col overflow-y-auto bg-white pb-12 shadow-xl transition duration-300 ease-in-out data-[closed]:translate-x-full"
           >
             <div className="flex px-4 pb-2 pt-5">
               <button
@@ -345,7 +346,10 @@ function NavContainer() {
           <div className="bg-[#F2EADF] pt-10 fixed w-full z-1">
             <div className="border-b border-gray-200">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="flex h-16 items-center justify-between">
+                <div
+                  className="flex h-16 items-center justify-between"
+                  dir="rtl"
+                >
                   {/* Logo (lg+) */}
                   <div className="hidden lg:flex lg:items-center ">
                     <a href="/">
@@ -365,7 +369,7 @@ function NavContainer() {
                         {navigation.categories.map((category, categoryIdx) => (
                           <Popover key={category.name} className="flex">
                             <div className="relative flex">
-                              <PopoverButton className="relative z-10 -mb-px flex items-center border-b-2 border-transparent pt-px text-sm font-medium text-gray-700 transition-colors duration-200 ease-out hover:text-gray-800 data-[open]:border-indigo-600 data-[open]:text-indigo-600">
+                              <PopoverButton className=" px-8 relative z-10 -mb-px flex items-center border-b-2 border-transparent pt-px text-sm font-medium text-gray-700 transition-colors duration-200 ease-out hover:text-gray-800 data-[open]:border-indigo-600 data-[open]:text-indigo-600">
                                 {category.name}
                               </PopoverButton>
                             </div>
@@ -549,17 +553,17 @@ function NavContainer() {
                       <Bars3Icon aria-hidden="true" className="size-6" />
                     </button>
 
-                    {/* Search */}
+                    {/* Search - small sizes*/}
                     <button
                       onClick={toggleSearchBar}
                       // href="#"
-                      className="ml-2 p-2 text-gray-400 hover:text-gray-500"
+                      className="ml-2 p-2 text-gray-400 hover:text-gray-500 pr-8"
                     >
                       <span className="sr-only">Search</span>
                       <MagnifyingGlassIcon
                         aria-hidden="true"
                         className="size-6"
-                      />
+                      />{" "}
                     </button>
                   </div>
 
@@ -600,7 +604,7 @@ function NavContainer() {
                           />
                         </div>
 
-                        <div className="flex">
+                        {/* <div className="flex">
                           <a
                             href="#"
                             className="-m-2 p-2 text-gray-400 hover:text-gray-500"
@@ -608,12 +612,17 @@ function NavContainer() {
                             <span className="sr-only">Account</span>
                             <UserIcon aria-hidden="true" className="size-6" />
                           </a>
-                        </div>
+                        </div> */}
                       </div>
+
+                      {/* <span
+                        aria-hidden="true"
+                        className="mx-4 h-6 w-px bg-gray-200 lg:mx-6"
+                      /> */}
 
                       <span
                         aria-hidden="true"
-                        className="mx-4 h-6 w-px bg-gray-200 lg:mx-6"
+                        className="mx-4 h-6 w-px  lg:mx-6"
                       />
 
                       <ShoppingCart
