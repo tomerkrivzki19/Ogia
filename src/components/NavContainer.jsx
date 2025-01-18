@@ -553,8 +553,8 @@ function NavContainer() {
                       <Bars3Icon aria-hidden="true" className="size-6" />
                     </button>
 
-                    {/* Search - small sizes*/}
-                    <button
+                    {/* Search - small sizes  --1*/}
+                    {/* <button
                       onClick={toggleSearchBar}
                       // href="#"
                       className="ml-2 p-2 text-gray-400 hover:text-gray-500 pr-8"
@@ -564,7 +564,7 @@ function NavContainer() {
                         aria-hidden="true"
                         className="size-6"
                       />{" "}
-                    </button>
+                    </button> */}
                   </div>
 
                   {/* Logo (lg-) */}
@@ -624,6 +624,18 @@ function NavContainer() {
                         aria-hidden="true"
                         className="mx-4 h-6 w-px  lg:mx-6"
                       />
+                      <button
+                        onClick={toggleSearchBar}
+                        // href="#"
+                        // className="ml-2 p-2 text-gray-400 hover:text-gray-500 pr-8 lg:hidden"
+                        className="ml-2 pl-4 text-gray-400 hover:text-gray-500  lg:hidden"
+                      >
+                        <span className="sr-only">Search</span>
+                        <MagnifyingGlassIcon
+                          aria-hidden="true"
+                          className="size-6"
+                        />{" "}
+                      </button>
 
                       <ShoppingCart
                         totalQuantity={totalQuantity}

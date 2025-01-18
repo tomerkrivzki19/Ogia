@@ -35,7 +35,8 @@ export default function ShoppingCart({
       <div className="flow-root ">
         <button
           onClick={() => setOpen(true)} // Open Dialog on click
-          className="group -m-2 flex items-center p-8 lg:p-2"
+          // className="group -m-2 flex items-center p-8 lg:p-2"
+          className="group -m-2 flex items-center p-2"
         >
           <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
             {totalQuantity}
