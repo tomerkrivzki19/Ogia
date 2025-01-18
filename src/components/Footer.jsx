@@ -66,7 +66,7 @@ function Footer() {
                 <img
                   alt="לוגו של החנות עוגיה"
                   src={logoImage}
-                  className="h-16 w-auto"
+                  className="h-26 w-36"
                 />
               </div>
               <div className="mx-auto mt-16 max-w-5xl xl:grid xl:grid-cols-2 xl:gap-8 ">
@@ -181,7 +181,7 @@ function Footer() {
               <div className="relative mt-6 flex items-center px-6 py-12 sm:px-10 sm:py-16 lg:mt-0">
                 <div className="absolute inset-0 overflow-hidden rounded-lg">
                   <img
-                    alt=""
+                    alt="תמונה של עכבר מחשב "
                     src="https://tailwindui.com/plus/img/ecommerce-images/footer-02-exclusive-sale.jpg"
                     className="size-full object-cover saturate-0 filter"
                   />
