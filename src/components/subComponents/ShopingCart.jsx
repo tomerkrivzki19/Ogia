@@ -118,7 +118,9 @@ export default function ShoppingCart({
                                           </a>
                                         </h3>
                                         <p className="ml-4" dir="ltr">
-                                          {`₪${product.variant.price.amount}`}
+                                          {`₪${parseFloat(
+                                            product.variant.price.amount
+                                          )}`}
                                         </p>
                                       </div>
                                       {/* <p className="mt-1 text-sm text-gray-500">
