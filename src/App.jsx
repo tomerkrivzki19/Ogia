@@ -13,6 +13,7 @@ import Error404 from "./components/Error404";
 import ProductPage from "./components/ProductPage";
 import StorePage from "./components/StorePage";
 import { CartProvider } from "./contexts/CartContext";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/product/:handle" element={<ProductPage />} />
         </Routes>
       </CartProvider>
+      <Footer />
     </Router>
   );
 }

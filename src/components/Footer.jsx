@@ -49,6 +49,7 @@ function Footer() {
   };
 
   return (
+    // className="bg-[#fd00ec]  bg-opacity-15"
     <>
       <footer
         aria-labelledby="footer-heading"
@@ -168,7 +169,7 @@ function Footer() {
                     <div className="mt-3 sm:ml-4 sm:mt-0 sm:shrink-0">
                       <button
                         type="submit"
-                        className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-white"
+                        className="flex w-full items-center justify-center rounded-md border border-transparent bg-pink-300   px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-pink-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-white"
                       >
                         שלח{" "}
                       </button>
@@ -184,7 +185,7 @@ function Footer() {
                     src="https://tailwindui.com/plus/img/ecommerce-images/footer-02-exclusive-sale.jpg"
                     className="size-full object-cover saturate-0 filter"
                   />
-                  <div className="absolute inset-0 bg-indigo-600/90" />
+                  <div className="absolute inset-0 bg-pink-300/90" />
                 </div>
                 <div className="relative mx-auto max-w-sm text-center">
                   <h3 className="text-2xl font-bold tracking-tight text-white">
