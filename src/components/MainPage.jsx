@@ -297,7 +297,6 @@ function MainPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const { products, error, loading } = trendingProducts();
-  // console.log("products", products);
 
   return (
     <div className="bg-white ">
@@ -398,16 +397,33 @@ function MainPage() {
         {/* Reviews section */}
         <ReviewSection />
         {/* Collections */}
-        <section aria-labelledby="collections-heading" className="bg-pink-100 ">
+        {/* <section aria-labelledby="collections-heading" className="bg-pink-100 "> */}
+        <section
+          aria-labelledby="collections-heading"
+          className="bg-[#fd00ec]  bg-opacity-15 "
+        >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
-              <h2
+              {/* devider */}
+              <div className="relative ">
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 flex items-center"
+                >
+                  <div className="w-full border-t border-gray-300" />
+                </div>
+                <div className="relative flex justify-center">
+                  <span className=" px-3 pb-3 text-base font-semibold text-gray-900">
+                    Projects
+                  </span>
+                </div>
+              </div>{" "}
+              {/* <h2
                 id="collections-heading"
                 className="text-2xl font-bold text-gray-900"
               >
                 אוספים....
-              </h2>
-
+              </h2> */}
               <TiktokFrame />
             </div>
           </div>
@@ -417,13 +433,13 @@ function MainPage() {
         <div className="relative overflow-hidden">
           {/* Decorative background image and gradient FIXME: added a bg color */}
           <div aria-hidden="true" className="absolute inset-0 bg-pink-lines">
-            <div className="absolute inset-0 mx-auto max-w-7xl overflow-hidden xl:px-8">
+            {/* <div className="absolute inset-0 mx-auto max-w-7xl overflow-hidden xl:px-8">
               <img
                 alt=""
-                // src="https://tailwindui.com/plus/img/ecommerce-images/home-page-02-sale-full-width.jpg"
+                src="https://tailwindui.com/plus/img/ecommerce-images/home-page-02-sale-full-width.jpg"
                 className="size-full object-cover"
               />
-            </div>
+            </div> */}
             <div className="absolute inset-0 bg-white/75" />
             <div className="absolute inset-0 bg-gradient-to-t from-white via-white" />
           </div>

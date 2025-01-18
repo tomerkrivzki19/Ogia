@@ -79,7 +79,11 @@ function classNames(...classes) {
 }
 function ReviewSection() {
   return (
-    <div className="space-y-10 p-8 bg-pink-200">
+    // <div className="space-y-10 p-8 bg-pink-100">
+    <div
+      className="space-y-10 p-8           bg-[#fd00ec]  bg-opacity-15 
+"
+    >
       <h1 className="text-center text-2xl font-bold text-gray-900">
         :לקוחות ממליצים
       </h1>
