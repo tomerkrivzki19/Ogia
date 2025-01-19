@@ -35,19 +35,26 @@ function TiktokFrame() {
         {/* Add each TikTokEmbed as a SwiperSlide */}
         <SwiperSlide>
           <TikTokEmbed
-            url="https://www.tiktok.com/@dorincohen440/video/7398130198887124242?is_from_webapp=1&sender_device=pc&web_id=7403007581662922247"
+            // url="https://www.tiktok.com/@dorincohen440/video/7398130198887124242?is_from_webapp=1&sender_device=pc&web_id=7403007581662922247"
+            url="https://www.tiktok.com/@tati_ch4/video/7097265847529475329?is_from_webapp=1&sender_device=pc&web_id=7403007581662922247
+
+"
             width="100%"
           />
         </SwiperSlide>
         <SwiperSlide>
           <TikTokEmbed
-            url="https://www.tiktok.com/@dorincohen440/video/7413021250412432648?is_from_webapp=1&sender_device=pc&web_id=7403007581662922247"
+            // url="https://www.tiktok.com/@dorincohen440/video/7413021250412432648?is_from_webapp=1&sender_device=pc&web_id=7403007581662922247"
+            url="https://www.tiktok.com/@tati_ch4/video/7427103922218634514?is_from_webapp=1&sender_device=pc&web_id=7403007581662922247
+
+"
             width="100%"
           />
         </SwiperSlide>
         <SwiperSlide>
           <TikTokEmbed
-            url="https://www.tiktok.com/@dorincohen440/video/7457896687776845074?is_from_webapp=1&sender_device=pc"
+            // url="https://www.tiktok.com/@dorincohen440/video/7457896687776845074?is_from_webapp=1&sender_device=pc"
+            url="https://www.tiktok.com/@tati_ch4/video/6873123354447023362?is_from_webapp=1&sender_device=pc&web_id=7403007581662922247"
             width="100%"
           />
         </SwiperSlide>
