@@ -700,7 +700,7 @@ function ProductPage() {
                       <button
                         onClick={() => handleAddCart(product.variants[0].id, 1)}
                         type="button"
-                        className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full "
+                        className="  bg-[#F2EADF] hover:bg-[#E5D6C4] text-black flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent  px-8 py-3 text-base font-medium   focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full "
                       >
                         {!loadingIndex ? (
                           <div className="flex gap-2 animate-fade-left animate-delay-300">
