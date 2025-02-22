@@ -181,8 +181,9 @@ function Footer() {
               <div className="relative mt-6 flex items-center px-6 py-12 sm:px-10 sm:py-16 lg:mt-0">
                 <div className="absolute inset-0 overflow-hidden rounded-lg">
                   <img
-                    alt="תמונה של עכבר מחשב "
-                    src="https://tailwindui.com/plus/img/ecommerce-images/footer-02-exclusive-sale.jpg"
+                    alt="תמונה של מוצרי אלקטרוניקה ופאלפון  "
+                    // src="https://tailwindui.com/plus/img/ecommerce-images/footer-02-exclusive-sale.jpg"
+                    src="https://images.pexels.com/photos/2265484/pexels-photo-2265484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                     className="size-full object-cover saturate-0 filter"
                   />
                   <div className="absolute inset-0 bg-[#A69F97]/90" />

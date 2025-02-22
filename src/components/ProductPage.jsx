@@ -756,7 +756,7 @@ function ProductPage() {
                     Additional details
                   </h2>
 
-                  <div className="divide-y divide-gray-200 border-t">
+                  <div className="divide-y divide-gray-200 border-t pr-2">
                     {[
                       {
                         name: "תאור המוצר ", // Section title
