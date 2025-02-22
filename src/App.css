@@ -9,10 +9,8 @@ meta[name="viewport"] {
 body,
 html {
   overflow-x: hidden;
-  /* Safari compatibility */
-  height: 100%;
+  overscroll-behavior-x: none;
   width: 100%;
-  transform: translate3d(0, 0, 0);
 }
 
 .bg-pink-lines {
