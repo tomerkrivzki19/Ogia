@@ -24,7 +24,7 @@ function Footer() {
       // { name: "Warranty", href: "#" },
       { name: "תשלומים מאובטחים", href: "/faq#securePayment" },
       { name: "שאלות תשובות", href: "/faq" },
-      { name: "Find a store", href: "#" },
+      { name: "מצא חנות", href: "/contact#location" },
     ],
     company: [
       { name: "אודות", href: "/faq#about" },

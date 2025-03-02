@@ -337,7 +337,7 @@ function NavContainer() {
         </div>
       </Dialog>
 
-      <header className="relative z-10">
+      <header className="relative z-20">
         <nav aria-label="Top">
           {/* Top navigation */}
           <NavCommercialHeader />
