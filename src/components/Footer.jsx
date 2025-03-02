@@ -1,5 +1,6 @@
 import React from "react";
 import logoImage from "../../public/WhatsAppImage2025-01-05at21.36.22_e3eca4b3.jpg";
+
 function Footer() {
   const footerNavigation = {
     products: [
@@ -21,12 +22,12 @@ function Footer() {
       { name: "Shipping", href: "#" },
       { name: "Returns", href: "#" },
       // { name: "Warranty", href: "#" },
-      { name: "Secure Payments", href: "#" },
+      { name: "תשלומים מאובטחים", href: "/faq#securePayment" },
       { name: "שאלות תשובות", href: "/faq" },
       { name: "Find a store", href: "#" },
     ],
     company: [
-      { name: "Who we are", href: "#" },
+      { name: "אודות", href: "/faq#about" },
       // { name: "Sustainability", href: "#" },
       // { name: "Press", href: "#" },
       // { name: "Careers", href: "#" },

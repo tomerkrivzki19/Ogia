@@ -14,8 +14,10 @@ import ProductPage from "./components/ProductPage";
 import StorePage from "./components/StorePage";
 import { CartProvider } from "./contexts/CartContext";
 import Footer from "./components/Footer";
-
+import UseScroolToHash from "./components/UseScroolToHash";
 function App() {
+  UseScroolToHash();
+
   return (
     <Router>
       <CartProvider>

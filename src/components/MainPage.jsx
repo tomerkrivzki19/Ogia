@@ -310,7 +310,7 @@ function MainPage() {
           className="z-40 fixed bottom-10 right-2 sm:right-5"
         >
           {/* --- */}
-          {/* <button class="w-10 h-10 flex items-center justify-center relative overflow-hidden rounded-full bg-white shadow-md shadow-gray-200 group transition-all duration-300">
+          <button class="w-10 h-10 flex items-center justify-center relative overflow-hidden rounded-full bg-white shadow-md shadow-gray-200 group transition-all duration-300">
             <svg
               class="relative z-10 fill-gray-900 transition-all duration-300 group-hover:fill-white"
               xmlns="http://www.w3.org/2000/svg"
@@ -379,7 +379,7 @@ function MainPage() {
             ></div>
           </button>
 
-          <button class="w-10 h-10 flex items-center justify-center rounded-full relative overflow-hidden bg-white shadow-md shadow-gray-200 group transition-all duration-300">
+          {/* <button class="w-10 h-10 flex items-center justify-center rounded-full relative overflow-hidden bg-white shadow-md shadow-gray-200 group transition-all duration-300">
             <svg
               class="fill-black z-10 transition-all duration-300 group-hover:fill-white"
               xmlns="http://www.w3.org/2000/svg"
@@ -397,9 +397,9 @@ function MainPage() {
               class="absolute top-full left-0 w-full h-full rounded-full
               bg-black z-0 transition-all duration-500 group-hover:top-0"
             ></div>
-          </button>
+          </button> */}
 
-          <button class="w-10 h-10 flex items-center justify-center relative overflow-hidden rounded-full bg-white shadow-md shadow-gray-200 group transition-all duration-300">
+          {/* <button class="w-10 h-10 flex items-center justify-center relative overflow-hidden rounded-full bg-white shadow-md shadow-gray-200 group transition-all duration-300">
             <svg
               class="fill-gray-900 relative z-10 transition-all duration-300 group-hover:fill-white"
               xmlns="http://www.w3.org/2000/svg"
