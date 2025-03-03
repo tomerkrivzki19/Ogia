@@ -13,7 +13,7 @@ html {
   width: 100%; */
 }
 /* safari option */
-body {
+body .overflow-sm-sizes {
   touch-action: pan-y;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: none;

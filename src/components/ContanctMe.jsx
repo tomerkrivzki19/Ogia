@@ -172,7 +172,7 @@ function ContanctMe() {
                     height="450"
                     allowfullscreen=""
                     loading="lazy"
-                    className="border-0 overflow-x-hidden"
+                    className="border-0 overflow-x-hidden .overflow-sm-sizes"
                     title="Store Location"
                   ></iframe>
                 </div>
