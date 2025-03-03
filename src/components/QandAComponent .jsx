@@ -104,7 +104,7 @@ function QandAComponent() {
             מחפשים משהו מיוחד? נשמח ליצור עבורכם קינוח בהתאמה אישית לכל אירוע! */}
           </p>
         </div>
-        <div className="mt-20">
+        <div className="mt-20" id="FAQ">
           <dl className="space-y-16 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-16 sm:space-y-0 lg:gap-x-10">
             {faqs.map((faq) => (
               <div key={faq.id}>

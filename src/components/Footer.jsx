@@ -23,7 +23,7 @@ function Footer() {
       { name: "Returns", href: "#" },
       // { name: "Warranty", href: "#" },
       { name: "תשלומים מאובטחים", href: "/faq#securePayment" },
-      { name: "שאלות תשובות", href: "/faq" },
+      { name: "שאלות תשובות", href: "/faq#FAQ" },
       { name: "מצא חנות", href: "/contact#location" },
     ],
     company: [
