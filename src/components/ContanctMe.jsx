@@ -34,13 +34,21 @@ function ContanctMe() {
                   </div>
                   <div className="mt-1">
                     <dt className="sr-only">מספר טלפון</dt>
-                    <dd className="">+9725-44962675</dd>
+                    <div className="flex items-center justify-end" dir="ltr">
+                      <a
+                        href="tel:+972 54-496-2675"
+                        className="font-semibold text-indigo-600 hover:text-indigo-900"
+                        // className="rounded-full bg-[#8F8479] px-2.5 py-1 text-xs font-semibold text-white shadow-sm hover:bg-[#776F66] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#776F66]"
+                      >
+                        +972 54-496-2675{" "}
+                      </a>
+                    </div>
                   </div>
                   <div className="mt-1">
                     <dt className="sr-only">WhatsApp</dt>
                     <dd>
                       <a
-                        href="https://wa.me/+972544962675?text=שלום!%20אני%20מעוניין%20לשיתוף%20פעולה%20איתכם."
+                        href="https://wa.me/+972544962675?text=שלום!%20אני%20זקוק%20לתמיכת%20לקוחות%20לגבי%20השירותים%20שלכם."
                         className="font-semibold text-indigo-600"
                       >
                         שלחו לנו הודעה בוואטסאפ
@@ -163,16 +171,17 @@ function ContanctMe() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:col-span-2 lg:gap-8">
-              <div className="sm:p-10 col-span-full">
-                <div className="mt-3 overflow-sm-sizes">
+            {/* FIXME: fix when uploading the project the overflox x - have this one but doesnt work propaly  overflow-sm-sizes */}
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:col-span-2 lg:gap-8 ">
+              <div className="sm:p-10 col-span-full ">
+                <div className="mt-3">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.9652088499324!2d34.59811518120476!3d31.680872890598643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15029c0669f222cd%3A0xbb13c5a006ff8cfa!2z15TXmdeV16bXqNeZ150sINeQ16nXp9ec15XXnw!5e1!3m2!1siw!2sil!4v1740954427176!5m2!1siw!2sil"
                     width="100%"
                     height="450"
                     allowfullscreen=""
                     loading="lazy"
-                    className="border-0 overflow-x-hidden overflow-sm-sizes"
+                    className="border-0 overflow-x-hidden"
                     title="Store Location"
                   ></iframe>
                 </div>
