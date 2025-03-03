@@ -177,24 +177,24 @@ function Footer() {
               <div className="absolute inset-0 overflow-hidden rounded-lg">
                 <img
                   alt="תמונה של מוצרי אלקטרוניקה ופאלפון  "
-                  // src="https://tailwindui.com/plus/img/ecommerce-images/footer-02-exclusive-sale.jpg"
-                  src="https://images.pexels.com/photos/2265484/pexels-photo-2265484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                  src="https://images.pexels.com/photos/239581/pexels-photo-239581.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  // src="https://images.pexels.com/photos/2265484/pexels-photo-2265484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                   className="size-full object-cover saturate-0 filter"
                 />
                 <div className="absolute inset-0 bg-[#A69F97]/90" />
               </div>
               <div className="relative mx-auto max-w-sm text-center">
                 <h3 className="text-2xl font-bold tracking-tight text-white">
-                  קבל גישה מוקדמת{" "}
+                  רוצים לשתף פעולה? 🚀
                 </h3>
                 <p className="mt-2 text-gray-200">
-                  נרשמת לניוזלטר? אם כן, השתמש במילת המפתח ששלחנו לך כדי לקבל
-                  גישה.{" "}
+                  אם אתם יוצרים תוכן, בעלי עסקים או משפיענים שמעוניינים לשתף
+                  פעולה איתנו, נשמח לשמוע מכם!
                   <a
-                    href="#"
-                    className="whitespace-nowrap font-bold text-white hover:text-gray-200"
+                    href="/contact"
+                    className="whitespace-nowrap font-bold text-white hover:text-gray-200 sm:pr-0 pr-4"
                   >
-                    הירשמו כעת
+                    צרו קשר
                     <span aria-hidden="true" className="pr-1">
                       &larr;
                     </span>
