@@ -8,14 +8,11 @@ function UseScroolToHash() {
       // Find the element by the hash
       const element = document.querySelector(hash);
       if (element) {
-        // Scroll into view with smooth behavior
-        element.scrollIntoView({ behavior: "smooth" });
+        // Scroll into view with smooth behavior,  behavior: "smooth",
+        element.scrollIntoView({ block: "center" });
       }
     }
   }, []); // Empty dependency array ensures it only runs once after initial render
 }
-
-//   return <div>UseScroolToHash</div>;
-// }
 
 export default UseScroolToHash;
